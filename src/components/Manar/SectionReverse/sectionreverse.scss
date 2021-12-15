@@ -1,0 +1,22 @@
+#SectionReverse {
+    background-color: black;
+    .section-reverse {
+        margin: 50px auto;
+        .row {
+            align-items: center;
+            background-color: black;
+            color: white;
+            justify-content: space-around;
+            // flex-direction: row-reverse;
+            .colcontetnt {
+                @media (max-width : 768px ){
+                    text-align: center;
+                }
+                width: 100%;
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

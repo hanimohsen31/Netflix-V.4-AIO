@@ -1,0 +1,37 @@
+
+.scard-icons{
+    position: absolute;
+    right: 25px;
+  top :10px;
+    stroke-width: 20px;
+    stroke: #e6e6e6;
+    padding: 4px;
+
+    font-size:40px;
+    color:rgba(51, 51, 51, 0.5);
+ 
+    border-radius: 50px;
+    
+    /* fill: #e6e6e6; */
+     background-color: rgba(51, 51, 51, 0.5);
+}
+.scard-icons:hover{
+    fill: #e6e6e6;
+}
+.scard-title {
+  display: flex;
+
+}
+
+.scard-hover:hover{
+  background-color: rgba(51, 51, 51, 0.5);
+
+}
+.scard{
+
+
+  color: white;
+  margin: 20px auto;
+  -webkit-box-shadow: 0px 0px 5px 0.5px black;
+          box-shadow: 0px 0px 5px 0.5px black;
+}

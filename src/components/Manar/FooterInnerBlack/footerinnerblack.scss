@@ -1,0 +1,44 @@
+#FooterInnerBlack {
+    .container-fluid {
+        background-color: black;
+        .container {
+            background-color: black;
+            color: rgb(117, 115, 110);
+            margin: 0 auto;
+            padding-bottom: 20px;
+            padding-top: 50px;
+            .row1 {
+                .icos {
+                    justify-content: flex-start;
+                    align-items: center;
+                    display: flex;
+                    .youtube {
+                        font-size: 35px;
+                        margin: 10px;
+                        margin-left: 41px;
+                    }
+                    .facebook {
+                        font-size: 28px;
+                        margin: 10px;
+                    }
+                }
+            }
+            .row2 {
+                .x {
+                    .mylist {
+                        list-style: none;
+                        display: block;
+                        li {
+                            a {
+                                color: #777;
+                            }
+                        }
+                    }
+                }
+            }
+            .stamp {
+                margin: 0 21px;
+            }
+        }
+    }
+}

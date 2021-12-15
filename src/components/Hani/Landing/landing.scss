@@ -1,0 +1,111 @@
+// max-width
+$exsmall: 576px;
+$mobile: 768px;
+$small: 991px;
+$large: 1200px;
+$xlarge: 1400px;
+
+// @media (max-width : $mobile){/*code*/}
+body{
+    position: relative;
+    #Landing{
+        video,.background {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            z-index: -1;
+            object-fit: cover;
+            // 0 to 768
+            @media (max-width : $mobile){
+                height: 50vh;
+            }
+            // 768 to up
+            @media (min-width : $mobile){
+                height: 75vh;
+            }
+            // 1200 to up
+            @media (min-width : $large){
+                height: 100vh;
+            }
+        }
+        .divall{
+            padding: 50px 0;
+            // 0 to 768
+            @media (max-width : $mobile){
+                height: 50vh;
+            }
+            // 768 to up
+            @media (min-width : $mobile){
+                height: 75vh;
+            }
+            // 1200 to up
+            @media (min-width : $large){
+                height: 100vh;
+            }
+            .row{
+                margin: auto 0;
+                justify-content: space-between;
+                .col1{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-start;
+                    .movielogo{
+                        width: 45vw;
+                    }
+                    h3{
+                        margin: 30px 0;
+                        color: #fff;
+                        font-size: 2vw;
+                        width: 100%;
+                    }   
+                    p {
+                        font-weight: bold;
+                        color: #fff;
+                        width: 50%;
+                        /* font-size: 16px; */
+                        font-size: 1vw;
+                        margin: 0 0 30px 0;
+                    }  
+                    .buttons{
+                        display: flex;
+                        flex-direction: row;
+                        button{
+                            font-size: 2vh;
+                            font-weight: bold;
+                            width: fit-content;
+                            span {
+                                width: 2vw;
+                            }  
+                        }
+                    }
+                }
+                .col2{
+                    color: #fff;
+                    display: flex;
+                    justify-content: flex-end;
+                    flex-direction: row;
+                    align-items: flex-end;
+                    i{
+                        background-color: #00000066;
+                        margin: 0 10px;
+                        height: -moz-fit-content;
+                        padding: 5px;
+                        font-weight: 600;
+                        font-size: 2vh;
+                        border-radius: 3px;
+                    }
+                    .age {
+                        background-color: #00000066;
+                        height: fit-content;
+                        padding: .5vh 4vw 0.5vh .5vw;
+                        font-weight: 600;
+                        font-size: 2vh;
+                        border-radius: 3px 0 0 3px;
+                    }
+                }
+            }
+        }
+    }
+
+}

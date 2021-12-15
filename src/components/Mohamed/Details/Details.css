@@ -1,0 +1,66 @@
+.movie-detail {
+  padding: 10px;
+  color: white;
+  object-fit: contain;
+}
+/* .ldetail-row3{
+    width: 50%;
+} */
+.matches {
+    font-weight: 800;
+  color: #46d369;
+}
+.m {
+  margin-left: 10px;
+}
+.age , .reselution{
+  padding: 2px 5px;
+  font-size: 10px;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+.ldetail-row2{
+    margin-top: 15px;
+}
+.top10{
+    
+    width: 25px;
+    height: 25px;
+}
+.position-num , .season-num , .p-year{
+    font-weight: 800;
+}
+
+.ldetail-row3{
+    
+    margin-top: 25px;
+    padding-right: 15px;
+    font-weight: 700;
+}
+.right-detail{
+    color: white;
+    padding: 15px;
+    /* border: 1px solid white; */
+
+}
+.lbl{
+    font-size: 19px;
+    font-weight: 700;
+    color: dimgray;
+    display: inline-block;
+    /* border: 1px solid white; */
+}
+.txt{
+    font-size: 15px;
+    font-weight: 600;
+    display: inline-block;
+    
+    /* border: 1px solid white; */
+
+}
+.mt{
+    margin-top: 15px;
+}
+.flx{
+    display: flex;
+}

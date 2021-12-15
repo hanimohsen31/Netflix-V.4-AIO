@@ -1,0 +1,43 @@
+Video
+    video-id || auto
+    title || Charfiled
+    category || Class Multiple Tags
+    type ==> movie -- series || choice
+    category || Charfiled
+    description || Charfiled
+    image/poster || ImageField
+    vid-name || Charfiled
+    episode-number || IntegerField
+    season-number || IntegerField
+
+User
+    user-id
+    email
+    username
+    fname
+    lname
+    password
+    payment-method
+    image
+
+------------------------------
+
+cast
+    video-id -->FK
+    actor-name
+    actor-image
+
+------------------------------
+movies
+    video-id
+    movie-id
+
+series
+    video-id
+    series-id
+    episode-id
+    episode-number
+    season-id
+    season-number
+
+

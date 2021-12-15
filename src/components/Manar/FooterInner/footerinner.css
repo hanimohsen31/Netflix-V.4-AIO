@@ -1,0 +1,48 @@
+#Footer .container-fluid {
+  background-color: #191b1b;
+}
+
+#Footer .container-fluid .container {
+  background-color: #191b1b;
+  color: #75736e;
+  margin: 0 auto;
+  padding-bottom: 20px;
+  padding-top: 50px;
+}
+
+#Footer .container-fluid .container .row1 .icos {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#Footer .container-fluid .container .row1 .icos .youtube {
+  font-size: 35px;
+  margin: 10px;
+  margin-left: 41px;
+}
+
+#Footer .container-fluid .container .row1 .icos .facebook {
+  font-size: 28px;
+  margin: 10px;
+}
+
+#Footer .container-fluid .container .row2 .x .mylist {
+  list-style: none;
+  display: block;
+}
+
+#Footer .container-fluid .container .row2 .x .mylist li a {
+  color: #777;
+}
+
+#Footer .container-fluid .container .stamp {
+  margin: 0 21px;
+}
+/*# sourceMappingURL=footerinner.css.map */

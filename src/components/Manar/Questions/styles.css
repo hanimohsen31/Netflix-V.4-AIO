@@ -1,0 +1,88 @@
+.myclass
+{
+    max-width: 60%;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.accordion-item h2 button{
+    width: 100%;
+    background-color: grey;
+    font-size: 25px;
+    color:whitesmoke;
+    text-align: left;
+    padding: 9px;
+}
+.accordion-item h2 button:after{
+    content: "+";
+    float: right;
+    width: 37px;
+    color: white;
+    cursor: pointer;
+    border: none;
+    font-size: 30px;
+}
+
+.accordion-body{
+    text-align: justify;
+    font-size: 18px;
+}
+.accordion-body > strong{
+    padding-bottom: 20px;
+}
+.colored{
+    color: red;
+}
+
+.colorblue{
+    color: lightblue;
+}
+
+.accordion-item h2 button {
+    background: #191b1b;
+    border: none;
+}
+
+.accordion-body{
+    background: #191b1b;
+    width: 100%;
+    color: white;
+    padding: 10px 20px;
+    margin-bottom: 15px;
+} 
+
+.accordion-item h2 button{
+    padding-left: 20px;
+}
+
+
+@media (max-width : 768px ){
+    .accordion-item h2 button{
+        padding-left: 10px;
+    }
+
+    .accordion-item h2 button:after{
+        font-size: 10px;
+        width: 10px;
+
+    }
+    .accordion-body{
+        font-size: 10px;
+    }
+    .accordion-item h2 button {
+        font-size: 14px;
+
+    }
+    .myclass{
+            max-width: 80%;
+        }
+
+    
+}
+
+.freq{
+    color: white;
+    text-align: center;
+    margin: 20px auto;
+}

@@ -1,0 +1,87 @@
+#CardPhoto {
+  width: 18rem;
+  background-color: #191b1b;
+  color: white;
+  margin: 20px 0;
+  -webkit-box-shadow: 0px 0px 5px 0.5px black;
+          box-shadow: 0px 0px 5px 0.5px black;
+}
+
+#CardPhoto .card-body .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#CardPhoto .card-body .row .col1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+#CardPhoto .card-body .row .col2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding: 0;
+}
+
+#CardPhoto .card-body .line1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#CardPhoto .card-body .line1 .match {
+  color: yellowgreen;
+  font-size: 14px;
+}
+
+#CardPhoto .card-body .line1 .age {
+  padding: 0 5px;
+  border: 1px solid #777;
+}
+
+#CardPhoto .card-body .line1 .quality {
+  padding: 0 2px;
+  border: 1px solid #777;
+  font-size: 12px;
+}
+
+#CardPhoto .card-body .line1 p {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 5px 10px 5px 0px;
+}
+
+#CardPhoto .card-body .line2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#CardPhoto .card-body .line2 p {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 2px;
+}
+/*# sourceMappingURL=cardphoto.css.map */

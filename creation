@@ -1,0 +1,4 @@
+django-admin startproject project .
+django-admin startapp app1
+python manage.py createsuperuser
+python manage.py runserver

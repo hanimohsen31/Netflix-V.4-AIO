@@ -1,0 +1,48 @@
+#FooterInnerBlack .container-fluid {
+  background-color: black;
+}
+
+#FooterInnerBlack .container-fluid .container {
+  background-color: black;
+  color: #75736e;
+  margin: 0 auto;
+  padding-bottom: 20px;
+  padding-top: 50px;
+}
+
+#FooterInnerBlack .container-fluid .container .row1 .icos {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#FooterInnerBlack .container-fluid .container .row1 .icos .youtube {
+  font-size: 35px;
+  margin: 10px;
+  margin-left: 41px;
+}
+
+#FooterInnerBlack .container-fluid .container .row1 .icos .facebook {
+  font-size: 28px;
+  margin: 10px;
+}
+
+#FooterInnerBlack .container-fluid .container .row2 .x .mylist {
+  list-style: none;
+  display: block;
+}
+
+#FooterInnerBlack .container-fluid .container .row2 .x .mylist li a {
+  color: #777;
+}
+
+#FooterInnerBlack .container-fluid .container .stamp {
+  margin: 0 21px;
+}
+/*# sourceMappingURL=footerinnerblack.css.map */

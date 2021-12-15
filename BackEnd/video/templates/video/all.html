@@ -1,0 +1,30 @@
+{% load bootstrap4 %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All</title>
+    <style>
+        video{
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+ <div class="container">
+    {% for i in all_objs%}
+        <h1>{{i.title}}</h1>
+        <h3>{{i.category}}</h3>
+        <h6>{{i.type}}</h6>
+        <h6>{{i.description}}</h6>
+        <h6>{{i.eps_num}}</h6>
+        <h6>{{i.season_num}}</h6>
+        <video controls poster="{{i.image}}">
+             <source src="{{i.video_file}}">
+        </video>
+     <hr>
+    {% endfor %}
+ </div>
+</body>
+</html>

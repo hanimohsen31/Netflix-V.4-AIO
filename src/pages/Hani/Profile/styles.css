@@ -1,0 +1,27 @@
+#Profilediv {
+  background-color: #191b1b;
+}
+
+#Profile {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+#Profile h1 {
+  color: #333;
+}
+
+#Profile .membership .row .col1 h4 {
+  margin-bottom: 30px;
+  color: #757575;
+}
+
+#Profile .membership .row .col1 button {
+  margin-bottom: 30px;
+}
+
+#Profile .membership .row .col2 h4 {
+  margin-bottom: 40px;
+  color: #333;
+}
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,21 @@
+#Section {
+    background-color: black;
+    .sectionclass {
+        margin: 50px auto;
+        .row {
+            align-items: center;
+            background-color: black;
+            color: white;
+            justify-content: space-around;
+            .colcontetnt {
+                width: 100%;
+                @media (max-width : 768px ){
+                    text-align: center;
+                }
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
