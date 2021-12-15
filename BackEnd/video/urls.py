@@ -16,4 +16,12 @@ urlpatterns = [
     # path("movie", views.movie),
     path('serieses', views.SeriesView.as_view()),
     # path("series", views.series),
+
+    path('action', views.Action.as_view()),
+    path('fantasy', views.Fantasy.as_view()),
+    path('scifi', views.SciFi.as_view()),
+    path('anime', views.Anime.as_view()),
+    path('comedy', views.Comedy.as_view()),
+    path('drama', views.Drama.as_view()),
+    path('family', views.Family.as_view()),
 ]

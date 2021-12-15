@@ -16,7 +16,15 @@ export const HomeIn = () => {
             <SwiperApp axios_url='http://127.0.0.1:8000/api/videos' slider_name='Trending Videos' />
             <SwiperApp axios_url='http://127.0.0.1:8000/api/movies' slider_name='Movies' />
             <SwiperApp axios_url='http://127.0.0.1:8000/api/serieses' slider_name='Serieses' />
-            <Grid axios_url='http://127.0.0.1:8000/api/videos' slider_name='Watch List' />
+
+            {/* <Grid axios_url='http://127.0.0.1:8000/api/videos' slider_name='Watch List' /> */}
+            <SwiperApp axios_url='http://127.0.0.1:8000/api/action' slider_name='Action' />
+            <SwiperApp axios_url='http://127.0.0.1:8000/api/fantasy' slider_name='Fantasy' />
+            <SwiperApp axios_url='http://127.0.0.1:8000/api/scifi' slider_name='Sci-Fi' />
+            <SwiperApp axios_url='http://127.0.0.1:8000/api/anime' slider_name='Anime' />
+            <SwiperApp axios_url='http://127.0.0.1:8000/api/comedy' slider_name='Comedy' />
+            <SwiperApp axios_url='http://127.0.0.1:8000/api/drama' slider_name='Drama' />
+            <SwiperApp axios_url='http://127.0.0.1:8000/api/family' slider_name='Family' />
 
 
             <FooterInner />
