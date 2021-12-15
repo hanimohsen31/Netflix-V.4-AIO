@@ -17,9 +17,6 @@ export const App = () => {
         <Switch>
 
         
-        <Route path="/homeout">
-          <HomeOut />
-        </Route>
 
         <Route path="/login">
           <Login/>
@@ -57,13 +54,17 @@ export const App = () => {
           <TermsOfUse />
         </ProtectedRoute>
 
+        <Route path="/">
+          <HomeOut />
+        </Route>
+
         <ProtectedRoute path="/">
           <Redirect to="/homein" />
         </ProtectedRoute>
 
-        <ProtectedRoute path="/profile">
+        {/* <ProtectedRoute path="/profile">
           <Redirect to="/profile" />
-        </ProtectedRoute>
+        </ProtectedRoute> */}
 
         </Switch>
     </>
