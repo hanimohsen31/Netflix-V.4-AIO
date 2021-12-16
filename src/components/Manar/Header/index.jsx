@@ -6,9 +6,13 @@ export const Header = (props) => {
       <div id='Header'  className="myheader">
 
         <div className="buttons col-sm-12 m-3">
-          <a href='/login' className='btn btn-danger mr-3'>Log In</a>
-          <a href='/signup' className='btn btn-danger mr-3'>Sign UP</a>
-          <a href='/homein' className='btn btn-danger'>Home</a>
+              
+          {!localStorage.getItem("token") && <a href='/login' className='btn btn-danger mr-3'>Log In</a>}
+          {!localStorage.getItem("token") && <a href='/signup' className='btn btn-danger mr-3'>Sign UP</a>}
+
+          {localStorage.getItem("token") && <a href='/homein' className='btn btn-danger'>Home</a>}
+
+          
 
         </div>
 
