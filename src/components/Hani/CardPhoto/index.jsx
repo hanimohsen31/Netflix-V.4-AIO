@@ -48,12 +48,13 @@ export const CardPhoto = (props) => {
           </div>
 
           <div className='line2'>
-            <p>Cat1</p>
+            <p>{props.cat1}</p>
             <BsDot />
-            <p>Cat1</p> 
+            <p>{props.cat2}</p> 
             <BsDot />
-            <p>Cat1</p>
+            <p>{props.cat3}</p>
           </div>
+
         </div>
       </div>
     </>
