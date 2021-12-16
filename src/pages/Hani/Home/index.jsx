@@ -24,9 +24,6 @@ export const HomeIn = () => {
             <SwiperApp axios_url='http://127.0.0.1:8000/api/anime' slider_name='Anime' />
             <SwiperApp axios_url='http://127.0.0.1:8000/api/comedy' slider_name='Comedy' />
             <SwiperApp axios_url='http://127.0.0.1:8000/api/drama' slider_name='Drama' />
-            <SwiperApp axios_url='http://127.0.0.1:8000/api/family' slider_name='Family' />
-
-
             <FooterInner />
         </>
     )

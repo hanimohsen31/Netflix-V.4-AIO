@@ -23,5 +23,4 @@ urlpatterns = [
     path('anime', views.Anime.as_view()),
     path('comedy', views.Comedy.as_view()),
     path('drama', views.Drama.as_view()),
-    path('family', views.Family.as_view()),
 ]

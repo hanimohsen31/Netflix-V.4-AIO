@@ -137,13 +137,3 @@ class Comedy(APIView):
     def post(self, request):
         pass
 
-
-class Family(APIView):
-    def get(self, request):
-        video = Video.objects.filter(Q(cat1='Family') | Q(cat2='Family') | Q(cat3='Family'))
-        ser = VideoSer(video, many=True)
-        return Response(ser.data)
-
-    def post(self, request):
-        pass
-
