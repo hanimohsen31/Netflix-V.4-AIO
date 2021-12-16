@@ -10,6 +10,7 @@ import { TermsOfUse } from "./pages/Hani/TermsOfUse";
 import { ProtectedRoute } from "./components/Fathi/protectedroute/index";
 import { Profile } from './pages/Hani/Profile/index';
 import { MovieDetails } from './pages/Mohamed/MovieDetails/index';
+import { Preview } from './pages/Hani/Preview/index';
 
 export const App = () => {
   return (
@@ -54,17 +55,17 @@ export const App = () => {
           <TermsOfUse />
         </ProtectedRoute>
 
-        <Route path="/">
-          <HomeOut />
-        </Route>
-
+        <ProtectedRoute path="/preview">
+          <Preview/>
+        </ProtectedRoute>
         <ProtectedRoute path="/">
           <Redirect to="/homein" />
         </ProtectedRoute>
 
-        {/* <ProtectedRoute path="/profile">
-          <Redirect to="/profile" />
-        </ProtectedRoute> */}
+        <Route path="/">
+          <HomeOut />
+        </Route>
+
 
         </Switch>
     </>

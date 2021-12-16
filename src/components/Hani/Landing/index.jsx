@@ -1,11 +1,17 @@
 // this is src/components/landing
 import "./landing.css";
 // import go from "../../../files/Images/go.mp4";
+import { useHistory } from 'react-router-dom';
 
 export const Landing = (props) => {
   let vidsrc = "https://firebasestorage.googleapis.com/v0/b/netflix-86f08.appspot.com/o/Cover%2FGUARDIAN%20-%20THE%20LONELY%20AND%20GREAT%20GOD%20(GOBLIN)%20-%20OFFICIAL%20TRAILER%20_%20Gong%20Yoo%2C%20Lee%20Dong%20Wook%2C%20Kim%20Go%20Eun.mp4?alt=media&token=fbed9bbb-1645-44fc-884e-32b4f805732b" 
   let img = "https://firebasestorage.googleapis.com/v0/b/netflix-86f08.appspot.com/o/Cover%2Foriginal.jpg?alt=media&token=1322743f-8134-4f2e-8af5-228529ff5a51"
-  return (
+  const history = useHistory();
+  
+  const handleClick = (event) =>{ 
+    event.preventDefault();
+    history.push({pathname:"/preview",state: {vidsrc:vidsrc}});}
+    return (
     <>
     <div id='Landing' className="return">
       <video src= {vidsrc}
@@ -24,12 +30,12 @@ export const Landing = (props) => {
               praesentium laborum.
             </p>
             <div className="buttons">
-              <a className="btn btn-light mr-3" href="http://localhost:3000/preview">
+              <a className="btn btn-light mr-3" onClick={handleClick}>
               <i className="fas fa-band-aid"></i>
                 <span>Play</span>
               </a>
 
-              <a className="btn btn-danger" href="http://localhost:3000/details">
+              <a className="btn btn-danger" >
               <i className="fas fa-band-aid"></i>
                 <span>More Info</span>
               </a>
