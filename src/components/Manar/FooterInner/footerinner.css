@@ -22,13 +22,17 @@
   display: flex;
 }
 
-#Footer .container-fluid .container .row1 .icos .youtube {
+#Footer .container-fluid .container .row1 .icos a {
+  color: #777;
+}
+
+#Footer .container-fluid .container .row1 .icos a .youtube {
   font-size: 35px;
   margin: 10px;
   margin-left: 41px;
 }
 
-#Footer .container-fluid .container .row1 .icos .facebook {
+#Footer .container-fluid .container .row1 .icos a .facebook {
   font-size: 28px;
   margin: 10px;
 }

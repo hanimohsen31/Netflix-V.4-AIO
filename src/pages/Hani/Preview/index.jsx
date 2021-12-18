@@ -1,4 +1,5 @@
 import { useLocation } from "react-router-dom";
+import {useHistory} from "react-router-dom";
 
 
 export const Preview = () => {
@@ -7,9 +8,11 @@ export const Preview = () => {
     // let vidsrc = "https://firebasestorage.googleapis.com/v0/b/netflix-86f08.appspot.com/o/Cover%2FGUARDIAN%20-%20THE%20LONELY%20AND%20GREAT%20GOD%20(GOBLIN)%20-%20OFFICIAL%20TRAILER%20_%20Gong%20Yoo%2C%20Lee%20Dong%20Wook%2C%20Kim%20Go%20Eun.mp4?alt=media&token=fbed9bbb-1645-44fc-884e-32b4f805732b" 
     const location =useLocation()
     const vidsrc=  location.state.vidsrc
+    const history = useHistory();
     return (
     <div className="container-fluid text-center align-center">
-        <video id='preview' src={vidsrc} controls style={{height:'99vh'}} autoPlay></video>
+        <video id='preview' src={vidsrc} controls style={{height:'95vh'}} autoPlay></video>
+        <button className="btn btn-outline-danger w-100" onClick={() => history.goBack()}>Go Back</button>
     </div>
     )
 }

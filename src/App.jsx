@@ -17,11 +17,10 @@ export const App = () => {
     <>
         <Switch>
 
-        
-
         <Route path="/login">
           <Login/>
         </Route> 
+
         <Route path="/logout">
           <Logout/>
         </Route>
@@ -37,7 +36,6 @@ export const App = () => {
         <Route path="/details">
           <MovieDetails />
         </Route>
-
         
         <ProtectedRoute path="/homein">
           <HomeIn />
@@ -58,14 +56,14 @@ export const App = () => {
         <ProtectedRoute path="/preview">
           <Preview/>
         </ProtectedRoute>
-        <ProtectedRoute path="/">
-          <Redirect to="/homein" />
-        </ProtectedRoute>
-
+        
         <Route path="/">
           <HomeOut />
         </Route>
 
+        <ProtectedRoute path="/">
+          <Redirect to="/homein" />
+        </ProtectedRoute>
 
         </Switch>
     </>

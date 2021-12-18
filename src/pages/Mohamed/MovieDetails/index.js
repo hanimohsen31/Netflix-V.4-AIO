@@ -15,43 +15,20 @@ export const MovieDetails = (props) => {
   const axios_url = location.state.axios_url;
   document.body.style.background = "#191b1b";
   const [vid, setVid] = useState([]);
-  console.log(
-    "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee" +
-      axios_url
-  );
-  const c = true;
+  // console.log("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee" +axios_url);
   useEffect(() => {
     axios.get(axios_url).then((result) => {
       setVid(result.data[0]);
     });
-  }, [c]);
+  }, []);
 
   console.log(vid);
   return (
       <div className="container">
         <Banner vid={vid} />
         <Details vid={vid} />
-        {vid.type == "Series" ? <EpisodesList vid={vid} /> : <div></div>}
-        {/* <ScardsList vid={vid}/>
-      <TrailerCardList vid={vid}/> */}
-        {/* <AboutMovie vid={vid}/> */}
+        {/* {vid.type === "Series" ? <EpisodesList vid={vid} /> : <div></div>} */}
       </div>
   
   );
 };
-
-// function MovieDetails() {
-//   document.body.style.background = '#191b1b';
-//     return (
-//         <div>
-//       <Banner/>
-//       <Details/>
-//       <EpisodesList/>
-//       <ScardsList/>
-//       <TrailerCardList/>
-//       <AboutMovie/>
-//         </div>
-//     )
-// }
-
-// export default MovieDetails

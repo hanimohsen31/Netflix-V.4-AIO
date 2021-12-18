@@ -18,9 +18,12 @@ export const CardPhoto = (props) => {
     event.preventDefault();
     history.push({pathname:"/details",state: {axios_url:axios_url}});}
 
+  const notAvNow = () => {
+    alert('Not Available now')
+  }
+
   return (
     <>
-
       <div id='CardPhoto' className="card" >
         <video src={props.vidsrc} className="card-img-top" muted alt="" poster={props.imgsrc} />
 
@@ -28,12 +31,12 @@ export const CardPhoto = (props) => {
         <div className='row' >
 
           <div className="col1 col-6" >
-            <FaPlayCircle size='35px' style={{ color: icoColor }} />
-            <AiOutlinePlusCircle size='40px' style={{ color: icoColor }} />
+            <FaPlayCircle size='35px' onClick={handleClick} style={{ color: icoColor }} />
+            <AiOutlinePlusCircle size='40px' onClick={notAvNow} style={{ color: icoColor }} />
           </div>
 
           <div className="col2 col-6" >
-          <a onClick={handleClick} href="##">
+          <a onClick={handleClick} href="#">
             <IoIosArrowDropdown size='40px' style={{ color: icoColor }}/>
           </a>
           </div>
