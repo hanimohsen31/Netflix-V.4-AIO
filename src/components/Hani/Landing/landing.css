@@ -136,7 +136,7 @@ body #Landing .divall .row .col2 i {
   background-color: #00000066;
   margin: 0 10px;
   height: -moz-fit-content;
-  padding: 5px;
+  padding: .5vh .3vw;
   font-weight: 600;
   font-size: 2vh;
   border-radius: 3px;
@@ -151,5 +151,6 @@ body #Landing .divall .row .col2 .age {
   font-weight: 600;
   font-size: 2vh;
   border-radius: 3px 0 0 3px;
+  border: none;
 }
 /*# sourceMappingURL=landing.css.map */

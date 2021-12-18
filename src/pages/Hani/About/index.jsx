@@ -12,7 +12,7 @@ export const About = () => {
   return (
     <>
       <Navbar />
-      <div className="container">
+      <div className="container my-2">
 
         {/* fathi */}
         <div className="row founders">

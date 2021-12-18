@@ -9,8 +9,10 @@ export const TermsOfUse = () => {
     <>
     <div className="all" style={{backgroundColor:'white'}} >
 
-
+      <div className="div" style={{backgroundColor:'#191b1b'}}>
       <Navbar/>
+      </div>
+
       <div className="container"  >
         <h1>Netflix Terms of Use</h1>
         <p>

@@ -34,10 +34,11 @@ export const Landing = (props) => {
                   <span>Play</span>
                 </a>
 
-                <a className="btn btn-danger" >
+                {/* <a className="btn btn-danger" >
                   <i className="fas fa-band-aid"></i>
                   <span>More Info</span>
-                </a>
+                </a> */}
+
               </div>
             </div>
 
