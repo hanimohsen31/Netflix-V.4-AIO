@@ -35,10 +35,10 @@ We simulated the most famous site for showing movies and series, which is Netfli
 ### 2. SignIn
 ![Loging page Image](https://github.com/hanimohsen31/Netflix-V.4-AIO/blob/main/IMGS/s6%20login.jpg)
 
-### 3. Home Page
+### 3. Landing Page
 ![Home page Image](https://github.com/hanimohsen31/Netflix-V.4-AIO/blob/main/IMGS/s1.jpg)
 
-### 4. Landin Page
+### 4. Home Page
 ![Home page Image](https://github.com/hanimohsen31/Netflix-V.4-AIO/blob/main/IMGS/s5%20homeout.jpg)
 
 ### 5. Tv Shows 
