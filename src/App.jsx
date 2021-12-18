@@ -11,6 +11,7 @@ import { ProtectedRoute } from "./components/Fathi/protectedroute/index";
 import { Profile } from './pages/Hani/Profile/index';
 import { MovieDetails } from './pages/Mohamed/MovieDetails/index';
 import { Preview } from './pages/Hani/Preview/index';
+import { About } from './pages/Hani/About/index';
 
 export const App = () => {
   return (
@@ -29,14 +30,14 @@ export const App = () => {
           <SignUp/>
         </Route>
 
-        <Route path="/profile">
-          <Profile/>
-        </Route> 
-
-        <Route path="/details">
+        <ProtectedRoute path="/details">
           <MovieDetails />
-        </Route>
+        </ProtectedRoute>
         
+        <Route path="/about">
+          <About />
+        </Route>
+
         <ProtectedRoute path="/homein">
           <HomeIn />
         </ProtectedRoute>

@@ -2,6 +2,9 @@ import { Navbar } from "../../../components/Hani/Navbar";
 import { FooterInner } from "../../../components/Manar/FooterInner";
 
 export const TermsOfUse = () => {
+  // document.quer('navbar-expand-lg').style.background = '#191b1b'
+  // document.body.style.background = '#191b1b';
+
   return (
     <>
     <div className="all" style={{backgroundColor:'white'}} >
