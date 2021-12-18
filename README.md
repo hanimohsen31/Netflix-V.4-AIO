@@ -25,21 +25,35 @@ We simulated the most famous site for showing movies and series, which is Netfli
 * Install required packages on virtualenv pip3 install -r requirements.txt
 * Migrate models to create tables in db python3 manage.py migrate
 * Run server by typing "npm start" in the terminal.
-* Open browser on this link http://127.0.0.1:5000/
+* Open browser on this link http://127.0.0.1:3000/
 
 ## Photos of site: 
 
 ### 1. SignUp
 ![SignUp page Image](https://github.com/hanimohsen31/Netflix-V.4-AIO/blob/main/IMGS/signup.jpeg)
 
-### 2. Login
+### 2. SignIn
 ![Loging page Image](https://github.com/hanimohsen31/Netflix-V.4-AIO/blob/main/IMGS/s6%20login.jpg)
 
 ### 3. Home Page
+![Home page Image](https://github.com/hanimohsen31/Netflix-V.4-AIO/blob/main/IMGS/s1.jpg)
+
+### 4. Landin Page
 ![Home page Image](https://github.com/hanimohsen31/Netflix-V.4-AIO/blob/main/IMGS/s5%20homeout.jpg)
 
-### 4. Watching move 
+### 5. Tv Shows 
+![Watching serieses page Image](https://github.com/hanimohsen31/Netflix-V.4-AIO/blob/main/IMGS/s2%20tvshows.jpg)
+
+
+### 6. Movies
 ![Watching move page Image](https://github.com/hanimohsen31/Netflix-V.4-AIO/blob/main/IMGS/s3%20movies.jpg)
 
-### 5. Watching serieses 
+
+### 7. Preview 
 ![Watching serieses page Image](https://github.com/hanimohsen31/Netflix-V.4-AIO/blob/main/IMGS/s4%20show.jpg)
+
+### 8. On Hover 
+![Watching serieses page Image](https://github.com/hanimohsen31/Netflix-V.4-AIO/blob/main/IMGS/s%20hover.jpg)
+
+### 9. Terms of Use
+![Watching serieses page Image](https://github.com/hanimohsen31/Netflix-V.4-AIO/blob/main/IMGS/s3%20terms.jpg)
