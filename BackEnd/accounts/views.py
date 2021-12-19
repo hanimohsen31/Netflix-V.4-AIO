@@ -21,7 +21,6 @@ from  .serializers import userserializer
 # Create your views here.
 class register(APIView):
     def post(self,request):
-        print(request.data)
         user = User.objects.filter(email=request.data['email'])
         if not user.exists():
             serializer=userserializer(data=request.data)
@@ -48,13 +47,13 @@ class register(APIView):
 class Login(APIView):
     def post(self,request):
         email= request.data['email']
-        print(email)
+        # print(email)
         password = request.data['password']
         user =User.objects.filter(email=email)
         if not user.exists():
             return  Response({'serialize':{"is_active":False}})
         user=user.first()
-        print(user.email)
+        # print(user.email)
         if user is  None:
             raise AuthenticationFailed("user not found")
         if  not user.check_password(password):
