@@ -81,9 +81,7 @@ class Login(APIView):
 
         user = User.objects.filter(id=payload['id']).first()
         serializer = userserializer(user)
-        print(serializer.data)
         date= serializer.data["is_active"]
-        print(date)
         response.data = {
             'jwt': token, 'is_active':date}
 

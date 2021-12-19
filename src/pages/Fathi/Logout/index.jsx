@@ -3,7 +3,7 @@ export const Logout=()=>{
 localStorage.removeItem("token")
 
 return ( <Route path="/">
-<Redirect to="/login" />
+<Redirect to="/homeout" />
 </Route>
 )
 

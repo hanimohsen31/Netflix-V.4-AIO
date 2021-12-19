@@ -17,7 +17,7 @@ export const Login = () => {
   const handleSubmit = async(event) => {
     event.preventDefault();
     await  authContext.getuser_data(email,password)
-    console.log(authContext.isLoggedIn)
+    // console.log(authContext.isLoggedIn)
     if (localStorage.getItem("token")){
       history.replace("/homein");
     }
