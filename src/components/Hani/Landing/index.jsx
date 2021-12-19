@@ -29,7 +29,7 @@ export const Landing = (props) => {
                 In his quest for a bride to break his immortal curse, Dokkaebi, a 939-year-old guardian of souls, meets a grim reaper and a sprightly student with a tragic past.
               </p>
               <div className="buttons">
-                <a className="btn btn-light mr-3" onClick={handleClick}>
+                <a className="btn btn-light mr-3" onClick={handleClick} href="##">
                   <i className="fas fa-band-aid"></i>
                   <span>Play</span>
                 </a>

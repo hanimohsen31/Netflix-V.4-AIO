@@ -2,8 +2,6 @@
 import { NavLink } from "react-router-dom";
 import "./navbar.css"
 import nlogo from "../../../files/Images/nlogo.png";
-import { VscAccount } from "react-icons/vsc";
-
 
 export const Navbar = () => {
   

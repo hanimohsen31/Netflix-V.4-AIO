@@ -1,6 +1,6 @@
 import React from "react";
 import "./Banner.css"
-import { FaPlusCircle, FaPlay, FaThumbsUp, FaThumbsDown, FaWindowClose, FaVolumeMute } from "react-icons/fa"
+import {  FaPlay, FaWindowClose } from "react-icons/fa"
 // import { faCommentsDollar } from "@fortawesome/free-solid-svg-icons";
 import { useHistory } from 'react-router-dom';
 

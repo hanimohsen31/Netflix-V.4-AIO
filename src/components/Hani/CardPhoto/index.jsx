@@ -4,7 +4,7 @@ import { IoIosArrowDropdown } from "react-icons/io";
 import { BsDot } from "react-icons/bs";
 import './cardphoto.css'
 import { useHistory } from 'react-router-dom';
-import { useState } from 'react';
+// import { useState } from 'react';
 
 
 
@@ -36,7 +36,7 @@ export const CardPhoto = (props) => {
           </div>
 
           <div className="col2 col-6" >
-          <a onClick={handleClick} href="#">
+          <a onClick={handleClick} href="####">
             <IoIosArrowDropdown size='40px' style={{ color: icoColor }}/>
           </a>
           </div>
@@ -45,7 +45,7 @@ export const CardPhoto = (props) => {
           <div className='line1' >
             <p className='match'>Rate {props.rate}/10</p>
             <p className='age'>16+</p>
-            {props.season_num > 0 && <p className="season_num_p">Season {props.season_num}</p>}
+            {props.season_num > 0 && <p className="season_num_p">S:{props.season_num} E:{props.eps_num}</p>}
             {props.season_num < 1 && <p className="season_num_p">Movie</p>}
             <p className='quality'>HD</p>
           </div>

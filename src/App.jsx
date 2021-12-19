@@ -8,7 +8,7 @@ import { Movies } from './pages/Hani/Movies/index';
 import { TvShows } from './pages/Hani/TvShows/index';
 import { TermsOfUse } from "./pages/Hani/TermsOfUse";
 import { ProtectedRoute } from "./components/Fathi/protectedroute/index";
-import { Profile } from './pages/Hani/Profile/index';
+// import { Profile } from './pages/Hani/Profile/index';
 import { MovieDetails } from './pages/Mohamed/MovieDetails/index';
 import { Preview } from './pages/Hani/Preview/index';
 import { About } from './pages/Hani/About/index';

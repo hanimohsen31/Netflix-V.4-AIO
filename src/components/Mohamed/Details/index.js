@@ -10,7 +10,7 @@ function Details(props) {
 
         <div className="ldetail-row1 flx align-items-center ">
           <span className="matches m">Rate {(video.rate)}/10</span>
-          {video.type == "Movie" ? (
+          {video.type === "Movie" ? (
             <span className="season-num m">Movie</span>
           ) : (
             <span className="season-num m">Season {video.season_num}</span>

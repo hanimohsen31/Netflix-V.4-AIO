@@ -1,10 +1,10 @@
 import React from "react";
 import Banner from "../../../components/Mohamed/Banner";
 import Details from "../../../components/Mohamed/Details/";
-import EpisodesList from "../../../components/Mohamed/EpisodesList";
-import ScardsList from "../../../components/Mohamed/ScardsList/index";
-import TrailerCardList from "../../../components/Mohamed/TrailerCardList";
-import AboutMovie from "../../../components/Mohamed/AboutMovie/index";
+// import EpisodesList from "../../../components/Mohamed/EpisodesList";
+// import ScardsList from "../../../components/Mohamed/ScardsList/index";
+// import TrailerCardList from "../../../components/Mohamed/TrailerCardList";
+// import AboutMovie from "../../../components/Mohamed/AboutMovie/index";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
