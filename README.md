@@ -16,13 +16,19 @@ We simulated the most famous site for showing movies and series, which is Netfli
 
 ## Run the project: 
 
-* Download the project.
-* Open the project in terminal by press Ctrl-Alt+T
-* Type "npm install" to install the required React packages.
-* Install required packages on virtualenv pip3 install -r requirements.txt
-* Run Back-end server by typing "python3 manage.py runserver" in the terminal.
-* Run Front-end server by typing "npm start" in the terminal.
+* download the project 
+* open the project in terminal by press `Ctrl-Alt+T`
+* install virtualenv `pip3 install virtualenv` 
+* init your virtualenv `virtualenv fund_env`
+* active virtualenv `source fund_env/bin/activate`
+* install required packages on virtualenv `pip3 install -r requirements.txt`
+* Run Back-end server by typing `python3 manage.py runserver` in the terminal.
+* Run Front-end server by typing `npm start` in the terminal.
 * Open browser on this link http://127.0.0.1:3000/
+
+## Previewing site: 
+
+![View](https://youtu.be/7Y41-SkriLQ)
 
 
 ## Photos of site: 
@@ -53,3 +59,6 @@ We simulated the most famous site for showing movies and series, which is Netfli
 
 ### 9. Terms of Use
 ![Watching serieses page Image](https://github.com/hanimohsen31/Netflix-V.4-AIO/blob/main/IMGS/s3%20terms.jpg)
+
+### 10. About Us
+![Watching serieses page Image](https://github.com/hanimohsen31/Netflix-V.4-AIO/blob/main/IMGS/ss.jpg)
