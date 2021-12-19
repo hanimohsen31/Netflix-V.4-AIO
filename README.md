@@ -28,7 +28,7 @@ We simulated the most famous site for showing movies and series, which is Netfli
 
 ## Previewing site: 
 
-![View Video](https://www.youtube.com/watch?v=7Y41-SkriLQ)
+![View Video](https://firebasestorage.googleapis.com/v0/b/netflix-vid-preview.appspot.com/o/Netflix%20clonning.mp4?alt=media&token=0d0a5aaa-09a3-4d74-b103-8965d287ae1b)
 
 
 ## Photos of site: 
