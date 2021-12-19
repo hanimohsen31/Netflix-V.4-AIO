@@ -28,7 +28,7 @@ We simulated the most famous site for showing movies and series, which is Netfli
 
 ## Previewing site: 
 
-![View](https://youtu.be/7Y41-SkriLQ)
+![View Video](https://www.youtube.com/watch?v=7Y41-SkriLQ)
 
 
 ## Photos of site: 
