@@ -23,6 +23,7 @@ class Video(models.Model):
     cat1 = models.CharField(max_length=10)
     cat2 = models.CharField(max_length=10)
     cat3 = models.CharField(max_length=10)
+    
 
     def __str__(self):
         return self.title
