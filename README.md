@@ -30,8 +30,7 @@ We simulated the most famous site for showing movies and series, which is Netfli
 * Open browser on this link http://127.0.0.1:3000/
 
 <!-- ## Previewing site: 
-
-https://user-images.githubusercontent.com/73165119/146778883-8a91dda8-f71e-4169-bbe6-1ea2aa3915e4.mp4
+![Viedo](https://user-images.githubusercontent.com/73165119/146778883-8a91dda8-f71e-4169-bbe6-1ea2aa3915e4.mp4)
 
 ### For higher video resolution :
 `https://www.youtube.com/watch?v=7Y41-SkriLQ`
