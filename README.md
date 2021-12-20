@@ -30,10 +30,7 @@ We simulated the most famous site for showing movies and series, which is Netfli
 * Open browser on this link http://127.0.0.1:3000/
 
 
-<!-- ## Previewing site: 
-![Viedo](https://github.com/hanimohsen31/Netflix-V.4-AIO/blob/main/IMGS/nf.mp4)
-
-### For higher video resolution :
+### Previewing site tour on youtube :
 `https://www.youtube.com/watch?v=7Y41-SkriLQ`
 
 ## Photos of site: 
