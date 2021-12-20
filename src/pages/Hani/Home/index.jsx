@@ -17,7 +17,6 @@ export const HomeIn = () => {
             <SwiperApp axios_url='http://127.0.0.1:8000/api/movies' slider_name='Movies' />
             <SwiperApp axios_url='http://127.0.0.1:8000/api/serieses' slider_name='Serieses' />
 
-            {/* <Grid axios_url='http://127.0.0.1:8000/api/videos' slider_name='Watch List' /> */}
             <SwiperApp axios_url='http://127.0.0.1:8000/api/action' slider_name='Action' />
             <SwiperApp axios_url='http://127.0.0.1:8000/api/fantasy' slider_name='Fantasy' />
             <SwiperApp axios_url='http://127.0.0.1:8000/api/scifi' slider_name='Sci-Fi' />

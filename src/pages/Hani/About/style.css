@@ -17,8 +17,6 @@
 }
 
 
-
-
   @media (max-width: 426px) {
     .imgfound{
         padding: 0 100px;
@@ -37,3 +35,7 @@
     }
   }
 
+
+.dddd{
+  margin-bottom: 50px;
+}

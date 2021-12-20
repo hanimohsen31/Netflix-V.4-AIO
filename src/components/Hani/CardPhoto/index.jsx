@@ -12,11 +12,17 @@ export const CardPhoto = (props) => {
   let icoColor = '#d6d4d4'
 
   const axios_url=props.axios_url;
+
   const history = useHistory();
   
   const handleClick = (event) =>{ 
     event.preventDefault();
     history.push({pathname:"/details",state: {axios_url:axios_url}});}
+
+      const handlepreview = (event) => {
+        event.preventDefault();
+        history.push({ pathname: "/preview", state: { vidsrc: props.video_file } });
+      }
 
   const notAvNow = () => {
     alert('Not Available now')
@@ -31,7 +37,7 @@ export const CardPhoto = (props) => {
         <div className='row' >
 
           <div className="col1 col-6" >
-            <FaPlayCircle size='35px' onClick={handleClick} style={{ color: icoColor }} />
+            <FaPlayCircle size='35px' onClick={handlepreview} style={{ color: icoColor }} />
             <AiOutlinePlusCircle size='40px' onClick={notAvNow} style={{ color: icoColor }} />
           </div>
 

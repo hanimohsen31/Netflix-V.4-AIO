@@ -1,0 +1,8 @@
+.con{
+    display: flex;
+    justify-content: center;
+}
+
+.aaa{
+    cursor:pointer
+}

@@ -3,6 +3,7 @@ import "./Details.css";
 // import top10 from "../images";
 function Details(props) {
   const video = props.vid;
+  console.log('hamada: ' ,video )
 
   return (
     <div className="row movie-detail ">

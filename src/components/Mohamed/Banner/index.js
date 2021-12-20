@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 
 function Banner(props) {
   const video = props.vid
-  console.log(video.title)
+  // console.log(video.title)
   const history = useHistory();
 
   const handleClick = (event) => {

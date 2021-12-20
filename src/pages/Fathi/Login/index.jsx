@@ -58,7 +58,7 @@ export const Login = () => {
                 <div className="remember">
                   <span>
                     {" "}
-                    <input type="checkbox"></input>
+                    <input type="checkbox" checked></input>
                   </span>
                   <span> Remember me</span>
                 </div>
@@ -66,23 +66,21 @@ export const Login = () => {
               </div>
               <div className="login_footer">
                 <div className="login_facebook">
-                  <span>
+
+                  {/* <span>
                     <img src={img1} alt=""></img>
                   </span>
                   <span>
                     <a href={lin}>login with facebook</a>
-                  </span>
+                  </span> */}
+
                 </div>
                 <div className="sign-up">
-                  <p>
-                    {" "}
-                    new to netflex?<NavLink className="navbar-brand" to="/signup">Sign up now.</NavLink>
-                  </p>
+                  <p>New to netflex? <NavLink className="navbar-brand" to="/signup">Sign up now.</NavLink></p>
                 </div>
                 <div className="terms">
                   <p>
-                    {" "}
-                    this page is protected by Google to ensure you are not a bot{" "}
+                    this page is protected by Google to ensure you are not a bot
                     <NavLink className="navbar-brand" to="/terms">Learn more.</NavLink>
                   </p>
                 </div>

@@ -43,6 +43,16 @@ class VideoView(APIView):
 
 class VideoDetails(APIView):
 
+    def get(self, request,title):
+        video = Video.objects.filter(title=title)
+        ser = VideoSer(video, many=True)
+        return Response(ser.data)
+
+    def post(self, request):
+        pass
+
+class VideoDetailsId(APIView):
+
     def get(self, request,id):
         video = Video.objects.filter(id=id)
         ser = VideoSer(video, many=True)
