@@ -12,6 +12,7 @@ export const CardPhoto = (props) => {
   let icoColor = '#d6d4d4'
 
   const axios_url=props.axios_url;
+  console.log('Caard: ',axios_url)
 
   const history = useHistory();
   
@@ -21,7 +22,7 @@ export const CardPhoto = (props) => {
 
       const handlepreview = (event) => {
         event.preventDefault();
-        history.push({ pathname: "/preview", state: { vidsrc: props.video_file } });
+        history.push({ pathname: "/preview", state: { vidsrc : props.vidsrc } });
       }
 
   const notAvNow = () => {
