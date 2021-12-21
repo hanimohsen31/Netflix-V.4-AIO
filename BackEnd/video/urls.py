@@ -26,5 +26,5 @@ urlpatterns = [
     path('comedy', views.Comedy.as_view()),
     path('drama', views.Drama.as_view()),
 
-    path('like', views.Like.as_view())
+    path('like', views.LikeFuck.as_view())
 ]

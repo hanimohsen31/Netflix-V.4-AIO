@@ -33,3 +33,6 @@ class Like(models.Model):
     user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     video = models.ForeignKey(Video, null=True, on_delete=models.CASCADE)
     status = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.video.title

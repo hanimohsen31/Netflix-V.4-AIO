@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Banner.css"
 import {  FaPlay, FaWindowClose } from "react-icons/fa"
-import {  AiTwotoneLike } from "react-icons/ai"
+import {  AiFillLike, AiTwotoneLike } from "react-icons/ai"
 import axios from "axios";
 
 // import { faCommentsDollar } from "@fortawesome/free-solid-svg-icons";
@@ -11,6 +11,7 @@ function Banner(props) {
   const video = props.vid
   // console.log(video.title)
   const history = useHistory();
+  const [like,setLike] = useState()
 
   const handleClick = (event) => {
     event.preventDefault();
@@ -19,9 +20,19 @@ function Banner(props) {
 
   const handlelike = () => {
     const response=  axios.post('http://localhost:8000/api/like', {
-      id: 4,
-    }).then((response) => console.log(response) )
+      id: video.id,
+      token : localStorage.getItem('token')
+    }).then((response) => setLike(response.data.status)).then((response) => setLike(response.data.status))
   }
+
+  // useEffect(() => {
+  //   const response=  axios.get('http://localhost:8000/api/like', {
+  //     id: video.id,
+  //     token : localStorage.getItem('token')
+  //   }).then((response) => setLike(response.data.status))
+  // }, [like]);
+
+
 
   return (
     <>
@@ -40,7 +51,8 @@ function Banner(props) {
             <button className="banner-button" onClick={handleClick}> <FaPlay /> Play</button>
             {/* <button className="banner-button" onClick={handleClick}> <AiTwotoneLike />Like</button> */}
             {/* like */}
-            <AiTwotoneLike onClick={handlelike} className="icons iconx2" />
+            {like == true && <AiTwotoneLike onClick={handlelike} className="icons iconx2" />}
+            {like == false && <FaWindowClose onClick={handlelike} className="icons iconx2" />}
             {/* go back */}
             <FaWindowClose onClick={() => history.goBack()} className="icons iconx" />
 

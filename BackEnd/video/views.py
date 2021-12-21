@@ -1,3 +1,5 @@
+import jwt, datetime
+
 import requests
 from django.shortcuts import render
 
@@ -156,23 +158,56 @@ class Comedy(APIView):
 # ######################################## Like here #############################################33
 
 
-class Like(APIView):
+class LikeFuck(APIView):
     def post(self, request):
-        print('ffffff')
-        print(request.session)
+        print(request.data)
+        token = request.data['token']
+        try:
+            payload = jwt.decode(token, 'secret', algorithm=['HS256'])
+        except jwt.ExpiredSignatureError:
+            raise AuthenticationFailed('Unauthenticated!')
 
-        user = User.objects.filter(id=request.session['user'])
-        print(user)
-        video = Video.objects.filter(id=request.data['id'])
-        like = Like.objects.filter(video=video)
-        if not like.exists():
-            Like.objects.create(video=video, user=user, status=True)
-            data = {'video': video, 'user': user, 'status': True}
+        user = User.objects.filter(id=payload['id']).first()
+        video = Video.objects.filter(id=request.data['id']).first()
+
+        like = Like.objects.filter(video=video.id,user=user.id).first()
+
+        if like:
+            print('1')
+            Like.objects.filter(video=video.id).delete()
+            response = Response()
+            response.data = {'status': False}
+            return response
+
+        else:
+            print('2')
+            data = {'video': video.id, 'user': user.id, 'status': True}
+            print('3')
             ser = LikeSer(data=data)
             ser.is_valid(raise_exception=True)
             ser.save()
-            Response({'status': True})
-        else:
-            Like.objects.filter(video=Like.video).delete()
-            Response({'status': False})
+            response = Response()
+            response.data = {'status': True}
+            return response
 
+    # def get(self, request):
+    #     token = request.data['token']
+    #     try:
+    #         payload = jwt.decode(token, 'secret', algorithm=['HS256'])
+    #     except jwt.ExpiredSignatureError:
+    #         raise AuthenticationFailed('Unauthenticated!')
+    #
+    #     user = User.objects.filter(id=payload['id']).first()
+    #     video = Video.objects.filter(id=request.data['id']).first()
+    #     like = Like.objects.filter(video=video.id, user=user.id).first()
+    #
+    #     if like:
+    #         print('1')
+    #         response = Response()
+    #         response.data = {'status': True}
+    #         return response
+    #
+    #     else:
+    #         response = Response()
+    #         response.data = {'status': False}
+    #         return response
