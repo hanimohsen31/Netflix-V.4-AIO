@@ -63,4 +63,4 @@ https://www.youtube.com/watch?v=7Y41-SkriLQ
 ![Watching serieses page Image](https://github.com/hanimohsen31/Netflix-V.4-AIO/blob/main/IMGS/s3%20terms.jpg)
 
 ### 10. About Us
-![Watching serieses page Image](https://github.com/hanimohsen31/Netflix-V.4-AIO/blob/main/IMGS/ss.jpg)
+![Watching serieses page Image](https://github.com/hanimohsen31/Netflix-V.4-AIO/blob/main/IMGS/sss.jpg)
