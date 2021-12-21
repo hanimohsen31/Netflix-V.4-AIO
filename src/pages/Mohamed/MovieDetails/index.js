@@ -29,6 +29,8 @@ export const MovieDetails = (props) => {
     });
   }, []);
 
+  const typeSelecttor = vid.map((p) => p.type)[0]
+  console.log('tyyyper',typeSelecttor)
   return (
       <div className="container">
 
@@ -43,10 +45,7 @@ export const MovieDetails = (props) => {
           )).slice(0,1)}
 
 
-        {vid.map((p) => p.type === "Series").slice(0,1) ? (
-          <EpisodesList vid={vid} /> 
-          ): (
-          <div></div>)}
+        {typeSelecttor === 'Series' ? (<EpisodesList vid={vid} /> ) : (<div></div>) }
 
         {/* {vid.map((p) => (
           <div className="#">
