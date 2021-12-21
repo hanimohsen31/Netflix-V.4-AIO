@@ -14,7 +14,7 @@ urlpatterns = [
     path('video/<int:id>', views.VideoDetailsId.as_view()),
 
     # path("all", views.all_videos),
-    path('movies',views.MovieView.as_view()),
+    path('movies', views.MovieView.as_view()),
     # path("movie", views.movie),
     path('serieses', views.SeriesView.as_view()),
     # path("series", views.series),
@@ -25,4 +25,6 @@ urlpatterns = [
     path('anime', views.Anime.as_view()),
     path('comedy', views.Comedy.as_view()),
     path('drama', views.Drama.as_view()),
+
+    path('like', views.Like.as_view())
 ]

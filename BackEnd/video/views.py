@@ -1,10 +1,14 @@
+import requests
 from django.shortcuts import render
+
+from accounts.models import User
 from video.models import Video
 from rest_framework.views import APIView
 from video.models import Video
-from .serializers import VideoSer
+from .serializers import VideoSer, LikeSer
 from rest_framework.response import Response
 from django.db.models import Q
+from .models import Like
 
 
 # Create your views here.
@@ -50,6 +54,7 @@ class VideoDetails(APIView):
 
     def post(self, request):
         pass
+
 
 class VideoDetailsId(APIView):
 
@@ -146,4 +151,28 @@ class Comedy(APIView):
 
     def post(self, request):
         pass
+
+# ################################################################################################33
+# ######################################## Like here #############################################33
+
+
+class Like(APIView):
+    def post(self, request):
+        print('ffffff')
+        print(request.session)
+
+        user = User.objects.filter(id=request.session['user'])
+        print(user)
+        video = Video.objects.filter(id=request.data['id'])
+        like = Like.objects.filter(video=video)
+        if not like.exists():
+            Like.objects.create(video=video, user=user, status=True)
+            data = {'video': video, 'user': user, 'status': True}
+            ser = LikeSer(data=data)
+            ser.is_valid(raise_exception=True)
+            ser.save()
+            Response({'status': True})
+        else:
+            Like.objects.filter(video=Like.video).delete()
+            Response({'status': False})
 

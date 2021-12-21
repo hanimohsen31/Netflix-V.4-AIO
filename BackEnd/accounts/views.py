@@ -51,14 +51,17 @@ class Login(APIView):
         password = request.data['password']
         user =User.objects.filter(email=email)
         if not user.exists():
-            return  Response({'serialize':{"is_active":False}})
-        user=user.first()
+            return Response({'serialize':{"is_active":False}})
+        user = user.first()
         # print(user.email)
-        if user is  None:
+        if user is None:
             raise AuthenticationFailed("user not found")
-        if  not user.check_password(password):
+        if not user.check_password(password):
             raise AuthenticationFailed("password incorrect")
-        
+
+        request.session['user'] = user.id
+
+        print(User.objects.filter(id=request.session['user']))
 
         payload = {
             'id': user.id,
@@ -91,6 +94,7 @@ class Login(APIView):
 class LogoutView(APIView):
     def post(self, request):
         response = Response()
+        request.session.clear()
         response.delete_cookie('jwt')
         response.data = {
             'message': 'success'

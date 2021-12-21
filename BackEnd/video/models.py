@@ -1,5 +1,6 @@
 from django.db import models
-from django.contrib.auth.models import User
+from accounts.models import User
+from django.db.models import CASCADE
 from taggit.managers import TaggableManager
 from django.template.defaultfilters import slugify
 
@@ -26,3 +27,9 @@ class Video(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Like(models.Model):
+    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+    video = models.ForeignKey(Video, null=True, on_delete=models.CASCADE)
+    status = models.BooleanField(default=False)

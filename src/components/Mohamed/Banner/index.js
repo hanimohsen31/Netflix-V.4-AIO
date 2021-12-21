@@ -1,6 +1,9 @@
 import React from "react";
 import "./Banner.css"
 import {  FaPlay, FaWindowClose } from "react-icons/fa"
+import {  AiTwotoneLike } from "react-icons/ai"
+import axios from "axios";
+
 // import { faCommentsDollar } from "@fortawesome/free-solid-svg-icons";
 import { useHistory } from 'react-router-dom';
 
@@ -12,6 +15,12 @@ function Banner(props) {
   const handleClick = (event) => {
     event.preventDefault();
     history.push({ pathname: "/preview", state: { vidsrc: video.video_file } });
+  }
+
+  const handlelike = () => {
+    const response=  axios.post('http://localhost:8000/api/like', {
+      id: 4,
+    }).then((response) => console.log(response) )
   }
 
   return (
@@ -29,6 +38,10 @@ function Banner(props) {
 
           <div className="banner-buttons">
             <button className="banner-button" onClick={handleClick}> <FaPlay /> Play</button>
+            {/* <button className="banner-button" onClick={handleClick}> <AiTwotoneLike />Like</button> */}
+            {/* like */}
+            <AiTwotoneLike onClick={handlelike} className="icons iconx2" />
+            {/* go back */}
             <FaWindowClose onClick={() => history.goBack()} className="icons iconx" />
 
           </div>
