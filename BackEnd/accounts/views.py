@@ -21,7 +21,6 @@ from  .serializers import userserializer
 # Create your views here.
 class register(APIView):
     def post(self,request):
-        print(request.data)
         user = User.objects.filter(email=request.data['email'])
         if not user.exists():
             serializer=userserializer(data=request.data)
@@ -48,18 +47,21 @@ class register(APIView):
 class Login(APIView):
     def post(self,request):
         email= request.data['email']
-        print(email)
+        # print(email)
         password = request.data['password']
         user =User.objects.filter(email=email)
         if not user.exists():
-            return  Response({'serialize':{"is_active":False}})
-        user=user.first()
-        print(user.email)
-        if user is  None:
+            return Response({'serialize':{"is_active":False}})
+        user = user.first()
+        # print(user.email)
+        if user is None:
             raise AuthenticationFailed("user not found")
-        if  not user.check_password(password):
+        if not user.check_password(password):
             raise AuthenticationFailed("password incorrect")
-        
+
+        request.session['user'] = user.id
+
+        print(User.objects.filter(id=request.session['user']))
 
         payload = {
             'id': user.id,
@@ -82,9 +84,7 @@ class Login(APIView):
 
         user = User.objects.filter(id=payload['id']).first()
         serializer = userserializer(user)
-        print(serializer.data)
         date= serializer.data["is_active"]
-        print(date)
         response.data = {
             'jwt': token, 'is_active':date ,'i':user.id}
 
@@ -94,6 +94,7 @@ class Login(APIView):
 class LogoutView(APIView):
     def post(self, request):
         response = Response()
+        request.session.clear()
         response.delete_cookie('jwt')
         response.data = {
             'message': 'success'

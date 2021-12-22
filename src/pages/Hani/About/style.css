@@ -1,0 +1,41 @@
+.founders {
+    background-color: #191b1b;
+    color: white;
+    margin: 20px 0;
+    -webkit-box-shadow: 0px 0px 5px 0.5px black;
+            box-shadow: 0px 0px 5px 0.5px black;
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+  }
+.founders img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    
+}
+
+
+  @media (max-width: 426px) {
+    .imgfound{
+        padding: 0 100px;
+    }
+  }
+
+  @media (max-width: 376px) {
+    .imgfound{
+        padding: 0 75px;
+    }
+  }
+  
+  @media (max-width: 321px) {
+    .imgfound{
+        padding: 0 45px;
+    }
+  }
+
+
+.dddd{
+  margin-bottom: 50px;
+}

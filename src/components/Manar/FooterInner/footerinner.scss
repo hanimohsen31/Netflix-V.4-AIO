@@ -12,14 +12,17 @@
                     justify-content: flex-start;
                     align-items: center;
                     display: flex;
-                    .youtube {
-                        font-size: 35px;
-                        margin: 10px;
-                        margin-left: 41px;
-                    }
-                    .facebook {
-                        font-size: 28px;
-                        margin: 10px;
+                    a{
+                        color: #777;
+                        .youtube {
+                            font-size: 35px;
+                            margin: 10px;
+                            margin-left: 41px;
+                        }
+                        .facebook {
+                            font-size: 28px;
+                            margin: 10px;
+                        }
                     }
                 }
             }

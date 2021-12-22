@@ -8,20 +8,20 @@ import { Movies } from './pages/Hani/Movies/index';
 import { TvShows } from './pages/Hani/TvShows/index';
 import { TermsOfUse } from "./pages/Hani/TermsOfUse";
 import { ProtectedRoute } from "./components/Fathi/protectedroute/index";
-import { Profile } from './pages/Hani/Profile/index';
+// import { Profile } from './pages/Hani/Profile/index';
 import { MovieDetails } from './pages/Mohamed/MovieDetails/index';
 import { Preview } from './pages/Hani/Preview/index';
+import { About } from './pages/Hani/About/index';
 
 export const App = () => {
   return (
     <>
         <Switch>
 
-        
-
         <Route path="/login">
           <Login/>
         </Route> 
+
         <Route path="/logout">
           <Logout/>
         </Route>
@@ -30,15 +30,14 @@ export const App = () => {
           <SignUp/>
         </Route>
 
-        <Route path="/profile">
-          <Profile/>
-        </Route> 
-
-        <Route path="/details">
+        <ProtectedRoute path="/details">
           <MovieDetails />
+        </ProtectedRoute>
+        
+        <Route path="/about">
+          <About />
         </Route>
 
-        
         <ProtectedRoute path="/homein">
           <HomeIn />
         </ProtectedRoute>
@@ -58,14 +57,14 @@ export const App = () => {
         <ProtectedRoute path="/preview">
           <Preview/>
         </ProtectedRoute>
-        <ProtectedRoute path="/">
-          <Redirect to="/homein" />
-        </ProtectedRoute>
-
+        
         <Route path="/">
           <HomeOut />
         </Route>
 
+        <ProtectedRoute path="/">
+          <Redirect to="/homein" />
+        </ProtectedRoute>
 
         </Switch>
     </>

@@ -2,8 +2,6 @@
 import { NavLink } from "react-router-dom";
 import "./navbar.css"
 import nlogo from "../../../files/Images/nlogo.png";
-import { VscAccount } from "react-icons/vsc";
-
 
 export const Navbar = () => {
   
@@ -41,6 +39,10 @@ export const Navbar = () => {
           
           <li className="nav-item">
             <NavLink className="nav-link" to="/terms">Terms</NavLink>
+          </li>
+
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/about">About</NavLink>
           </li>
 
           <li className="nav-item">

@@ -62,7 +62,7 @@ body{
                     p {
                         font-weight: bold;
                         color: #fff;
-                        width: 50%;
+                        // width: 50%;
                         /* font-size: 16px; */
                         font-size: 1vw;
                         margin: 0 0 30px 0;
@@ -90,7 +90,7 @@ body{
                         background-color: #00000066;
                         margin: 0 10px;
                         height: -moz-fit-content;
-                        padding: 5px;
+                        padding: .5vh .3vw ;
                         font-weight: 600;
                         font-size: 2vh;
                         border-radius: 3px;
@@ -102,6 +102,7 @@ body{
                         font-weight: 600;
                         font-size: 2vh;
                         border-radius: 3px 0 0 3px;
+                        border: none;
                     }
                 }
             }

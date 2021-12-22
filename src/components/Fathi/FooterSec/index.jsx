@@ -1,18 +1,9 @@
 import { NavLink } from "react-router-dom";
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faYoutube, globalIcon } from '@fortawesome/free-brands-svg-icons';
+
 
 export const  FooterSec=() =>{
     let lin = 'www.google.com'
 
-    const itemlist=[
-        'FAQ',
-        'Help Center',
-        'Terms of Use',
-        'Privacy',
-        'Cookie Preferences',
-        'Corporate information',
-    ]
     return(
         <>
             <div className="site-footer-wrapper-centered">

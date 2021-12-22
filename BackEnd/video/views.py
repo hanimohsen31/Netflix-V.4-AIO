@@ -1,5 +1,7 @@
-from django.contrib.auth import get_user
+import jwt, datetime
+import requests
 from django.shortcuts import render
+from accounts.models import User
 from series.models import Category
 from video.models import Video
 from rest_framework.views import APIView
@@ -8,9 +10,11 @@ from movie.models import Movie
 from episode.models import Episode
 from episode.serializers import EpisodeSer
 from movie.serializers import MovieSer
+from .serializers import LikeSer
+from .models import Like
 from rest_framework.response import Response
 from django.db.models import Q
-import json
+
 
 
 # Create your views here.
@@ -69,6 +73,27 @@ class VideoDetails(APIView):
 
     def post(self, request):
         pass
+############## Conflicted #################
+# class VideoDetails(APIView):
+#     def get(self, request,title):
+#         video = Video.objects.filter(title=title)
+#         ser = VideoSer(video, many=True)
+#         return Response(ser.data)
+
+#     def post(self, request):
+#         pass
+
+
+# class VideoDetailsId(APIView):
+
+#     def get(self, request,id):
+#         video = Video.objects.filter(id=id)
+#         ser = VideoSer(video, many=True)
+#         return Response(ser.data)
+
+#     def post(self, request):
+#         pass
+
 
 class AddToMyList(APIView):
     def post(self, request,vid, vtype):
@@ -194,3 +219,63 @@ class MyListView(APIView):
 #     def post(self, request):
 #         pass
 
+# ################################################################################################33
+# ######################################## Like here #############################################33
+
+
+class LikeFuck(APIView):
+    def post(self, request):
+        print(request.data)
+        token = request.data['token']
+        try:
+            payload = jwt.decode(token, 'secret', algorithm=['HS256'])
+        except jwt.ExpiredSignatureError:
+            raise AuthenticationFailed('Unauthenticated!')
+
+        user = User.objects.filter(id=payload['id']).first()
+        video = Video.objects.filter(id=request.data['id']).first()
+
+        like = Like.objects.filter(video=video.id,user=user.id).first()
+
+        if like:
+            print('1')
+            Like.objects.filter(video=video.id).delete()
+            response = Response()
+            response.data = {'status': False}
+            return response
+
+        else:
+            print('2')
+            data = {'video': video.id, 'user': user.id, 'status': True}
+            print('3')
+            ser = LikeSer(data=data)
+            ser.is_valid(raise_exception=True)
+            ser.save()
+            response = Response()
+            response.data = {'status': True}
+            return response
+
+
+
+class  Getlike(APIView):
+    def post(self, request):
+        token = request.data['token']
+        try:
+            payload = jwt.decode(token, 'secret', algorithm=['HS256'])
+        except jwt.ExpiredSignatureError:
+            raise AuthenticationFailed('Unauthenticated!')
+    
+        user = User.objects.filter(id=payload['id']).first()
+        video = Video.objects.filter(id=request.data['id']).first()
+        like = Like.objects.filter(video=video.id, user=user.id).first()
+    
+        if like:
+            print('1')
+            response = Response()
+            response.data = {'status': True}
+            return response
+    
+        else:
+            response = Response()
+            response.data = {'status': False}
+            return response

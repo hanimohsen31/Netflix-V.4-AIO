@@ -25,4 +25,9 @@ urlpatterns = [
 #     path('anime', views.Anime.as_view()),
 #     path('comedy', views.Comedy.as_view()),
 #     path('drama', views.Drama.as_view()),
+#######  Conflicted #################
+    # path('video/<str:title>', views.VideoDetails.as_view()),
+    # path('video/<int:id>', views.VideoDetailsId.as_view()),
+    # path('like', views.LikeFuck.as_view()),
+    # path('getlike',views.Getlike.as_view())
  ]

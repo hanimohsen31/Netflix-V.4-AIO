@@ -8,9 +8,9 @@ export const Header = (props) => {
         <div className="buttons col-sm-12 m-3">
               
           {!localStorage.getItem("token") && <a href='/login' className='btn btn-danger mr-3'>Log In</a>}
-          {!localStorage.getItem("token") && <a href='/signup' className='btn btn-danger mr-3'>Sign UP</a>}
+          {/* {!localStorage.getItem("token") && <a href='/signup' className='btn btn-danger mr-3'>Sign UP</a>} */}
 
-          {localStorage.getItem("token") && <a href='/homein' className='btn btn-danger'>Home</a>}
+          {/* {localStorage.getItem("token") && <a href='/homein' className='btn btn-danger'>Home</a>} */}
 
           
 
@@ -31,7 +31,11 @@ export const Header = (props) => {
 
           <div class="input-group mb-3 container col-sm-8 col-lg-5">
             <input type="email" class="form-control" placeholder="Email Adress" aria-label="Recipient's username" aria-describedby="button-addon2" />
-            <a href='/signup' class="btn btn-danger" type="button" id="button-addon2">Start</a>
+
+
+          {!localStorage.getItem("token") && <a href='/login' class="btn btn-danger" type="button" id="button-addon2">Start</a>}
+          {localStorage.getItem("token") && <a href='/homein' class="btn btn-danger" type="button" id="button-addon2">Start</a>}
+
           </div>
 
         </div>

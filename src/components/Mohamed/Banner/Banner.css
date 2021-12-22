@@ -97,6 +97,14 @@
   top: 25px;
   right: 25px;
 }
+
+.iconx2{
+  position: absolute;
+  top: 25px;
+  right: 75px;
+}
+
+
 .icon-mute{
   position: absolute;
 right: 25px;

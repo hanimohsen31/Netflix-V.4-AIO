@@ -1,15 +1,13 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-import { AuthContext } from "../../../Context/authcontext";
 import { Inputuser } from "../../../components/Fathi/LoginInput/index";
 import { FooterSec } from "../../../components/Fathi/FooterSec/index";
-import img1 from "../../../files/Images/icon.png";
 import axios from "axios";
 
 
 export const SignUp = () => {
-  let lin = "www.google.com";
+  // let lin = "www.google.com";
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isValidCred, setIsValidCred] = useState(true);
@@ -42,7 +40,7 @@ export const SignUp = () => {
           // document.body.innerHTML = response.data
         }).then(function (response) {
           console.log(response, "dddd")
-          if (response == "this email is used please try again") {
+          if (response === "this email is used please try again") {
 
             setIsValidCred(false)
           }

@@ -67,12 +67,17 @@ export const SwiperApp = (props) => {
       >
 
         {vids.map((p) => (
+
         <SwiperSlide>
+
           <CardPhoto id={p.id} title={p.title} description = {p.description} 
           vidsrc={p.video_file} imgsrc = {p.image} rate = {p.rates}
           season_num={p.season_num} eps_num = {p.eps_num}
           show_start={p.show_start} cat1={p.categories} cat2={p.cat2} cat3={p.cat3}
           axios_url={`http://127.0.0.1:8000/api/video/${p.id}/${p.eps_num == null ? 'movie':'episode'}`}
+         ////////////////////// Conflict//////////
+          // show_start={p.show_start} cat1={p.cat1} cat2={p.cat2} cat3={p.cat3}
+          // axios_url={`http://127.0.0.1:8000/api/video/${p.title}`}
           />
         </SwiperSlide>
         )).slice(0,9)}

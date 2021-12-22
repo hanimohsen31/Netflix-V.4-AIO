@@ -15,6 +15,8 @@ export const CardPhoto = (props) => {
 const  apicontext=useContext(ApiContext)
 const  authcontext=useContext(AuthContext)
   const axios_url=props.axios_url;
+  console.log('Caard: ',axios_url)
+
   const history = useHistory();
   
   const handleClick = (event) =>{ 
@@ -28,6 +30,12 @@ const  handleAddMyList=async (event)=>{
   console.log(authcontext.user)
    await apicontext.post(`http://127.0.0.1:8000/api/video/${props.id}/${props.eps_num == null ? 'movie':'episode'}/addtomylist`,{user_id:authcontext.user})
 }
+const handlepreview = (event) => {
+  event.preventDefault();
+  history.push({ pathname: "/preview", state: { vidsrc : props.vidsrc } });
+}
+
+
     // useEffect(() => {
     //   axios.get(`http://127.0.0.1:8000/api/video/${props.id}/${props.eps_num == null ? 'movie':'episode'}/addtomylist`).then((result) => {
     //     console.log(result.data);
@@ -36,7 +44,6 @@ const  handleAddMyList=async (event)=>{
 
   return (
     <>
-
       <div id='CardPhoto' className="card" >
         <video src={props.vidsrc} className="card-img-top" muted alt="" poster={props.imgsrc} />
 
@@ -44,14 +51,14 @@ const  handleAddMyList=async (event)=>{
         <div className='row' >
 
           <div className="col1 col-6" >
-            <FaPlayCircle size='35px' style={{ color: icoColor }} />
+            <FaPlayCircle onClick={handlepreview} size='35px' style={{ color: icoColor }} />
           <a onClick={handleAddMyList}>
              <AiOutlinePlusCircle size='40px' style={{ color: icoColor }} />
           </a> 
           </div>
 
           <div className="col2 col-6" >
-          <a onClick={handleClick} href="##">
+          <a onClick={handleClick} href="####">
             <IoIosArrowDropdown size='40px' style={{ color: icoColor }}/>
           </a>
           </div>
@@ -60,7 +67,7 @@ const  handleAddMyList=async (event)=>{
           <div className='line1' >
             <p className='match'>Rate {props.rate}/10</p>
             <p className='age'>16+</p>
-            {props.season_num > 0 && <p className="season_num_p">Season {props.season_num}</p>}
+            {props.season_num > 0 && <p className="season_num_p">S:{props.season_num} E:{props.eps_num}</p>}
             {props.season_num < 1 && <p className="season_num_p">Movie</p>}
             <p className='quality'>HD</p>
           </div>

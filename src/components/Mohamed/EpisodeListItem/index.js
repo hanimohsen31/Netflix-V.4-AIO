@@ -1,20 +1,42 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom';
 
-function EpisodeListItem() {
+function EpisodeListItem(props) {
+  const video = props.fu
+
+
+  const axios_url=props.axios_url;
+  console.log('last print',axios_url)
+  const history = useHistory();
+  
+  // const handleClick = (event) =>{ 
+  //   event.preventDefault();
+  //   history.push({pathname:"/details",state: {axios_url:axios_url}});}
+
+  const handlepreview = (event) => {
+    event.preventDefault();
+    history.push({ pathname: "/preview", state: { vidsrc: video.video_file } });
+  }
+
     return (
-        <div className="row l-item">
-          <h2>1</h2>
-          <img className="col col-md-3 col-lg-2  ep_img m" src="/images/1.jpeg" alt='' />
-          <div className="col m">
-            <div className="mb">
-              <h2 className="ep-title">Episode Title</h2>
-              <span className="ep-time">59m</span>
+        <div className="container l-item" >
+          <div className='row'>
+
+          <div className="col1 col-sm-12 col-md-1 col-lg-1">
+            <h2>{video.eps_num}</h2>
+          </div>
+
+          <a onClick={handlepreview} className='col2 col-sm-12 col-md-4 col-lg-3'>
+            <img style={{width:'150px',height:'150px',objectFit:'cover'}} className="text-align-center" src={video.image} alt='' />
+          </a>
+
+          <div className="col3 col-sm-12 col-md-7 col-lg-8">
+            <div className="m-md-0">
+              <h2 className="ep-title">{video.title}</h2>
             </div>
-            <p>
-              Description of Episode...Description of Episode... Description of
-              Episode...Description of Episode... Description of
-              Episode...Description of Episode...
-            </p>
+            <p>{video.description}</p>
+          </div>
+
           </div>
         </div>
     )
