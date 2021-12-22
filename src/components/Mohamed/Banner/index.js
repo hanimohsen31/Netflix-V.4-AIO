@@ -18,19 +18,19 @@ function Banner(props) {
     history.push({ pathname: "/preview", state: { vidsrc: video.video_file } });
   }
 
-  const handlelike = () => {
-    const response=  axios.post('http://localhost:8000/api/like', {
+  const handlelike =  async() => {
+    const response= await axios.post('http://localhost:8000/api/like', {
       id: video.id,
       token : localStorage.getItem('token')
     }).then((response) => setLike(response.data.status)).then((response) => setLike(response.data.status))
   }
 
-  // useEffect(() => {
-  //   const response=  axios.get('http://localhost:8000/api/like', {
-  //     id: video.id,
-  //     token : localStorage.getItem('token')
-  //   }).then((response) => setLike(response.data.status))
-  // }, [like]);
+  useEffect(() => {
+    const response=  axios.post('http://localhost:8000/api/getlike', {
+      id: video.id,
+      token : localStorage.getItem('token')
+    }).then((response) => setLike(response.data.status))
+  }, [like]);
 
 
 

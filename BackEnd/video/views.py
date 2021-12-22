@@ -190,24 +190,27 @@ class LikeFuck(APIView):
             response.data = {'status': True}
             return response
 
-    # def get(self, request):
-    #     token = request.data['token']
-    #     try:
-    #         payload = jwt.decode(token, 'secret', algorithm=['HS256'])
-    #     except jwt.ExpiredSignatureError:
-    #         raise AuthenticationFailed('Unauthenticated!')
-    #
-    #     user = User.objects.filter(id=payload['id']).first()
-    #     video = Video.objects.filter(id=request.data['id']).first()
-    #     like = Like.objects.filter(video=video.id, user=user.id).first()
-    #
-    #     if like:
-    #         print('1')
-    #         response = Response()
-    #         response.data = {'status': True}
-    #         return response
-    #
-    #     else:
-    #         response = Response()
-    #         response.data = {'status': False}
-    #         return response
+
+
+class  Getlike(APIView):
+    def post(self, request):
+        token = request.data['token']
+        try:
+            payload = jwt.decode(token, 'secret', algorithm=['HS256'])
+        except jwt.ExpiredSignatureError:
+            raise AuthenticationFailed('Unauthenticated!')
+    
+        user = User.objects.filter(id=payload['id']).first()
+        video = Video.objects.filter(id=request.data['id']).first()
+        like = Like.objects.filter(video=video.id, user=user.id).first()
+    
+        if like:
+            print('1')
+            response = Response()
+            response.data = {'status': True}
+            return response
+    
+        else:
+            response = Response()
+            response.data = {'status': False}
+            return response
