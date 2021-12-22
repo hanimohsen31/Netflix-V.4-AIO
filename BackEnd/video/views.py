@@ -7,10 +7,10 @@ from accounts.models import User
 from video.models import Video
 from rest_framework.views import APIView
 from video.models import Video
-from .serializers import VideoSer, LikeSer
+from .serializers import DislikeSer, VideoSer, LikeSer
 from rest_framework.response import Response
 from django.db.models import Q
-from .models import Like
+from .models import Like , Dislike
 
 
 # Create your views here.
@@ -169,30 +169,29 @@ class LikeFuck(APIView):
 
         user = User.objects.filter(id=payload['id']).first()
         video = Video.objects.filter(id=request.data['id']).first()
-
         like = Like.objects.filter(video=video.id,user=user.id).first()
 
         if like:
-            print('1')
             Like.objects.filter(video=video.id).delete()
             response = Response()
             response.data = {'status': False}
             return response
 
         else:
-            print('2')
+            dislike = Dislike.objects.filter(video=video.id, user=user.id).first()
+            if dislike:
+                Dislike.objects.filter(video=video.id).delete()
+
             data = {'video': video.id, 'user': user.id, 'status': True}
-            print('3')
             ser = LikeSer(data=data)
             ser.is_valid(raise_exception=True)
             ser.save()
             response = Response()
-            response.data = {'status': True}
+            response.data = {'statuslike': True, 'statusdislike': False}
             return response
 
 
-
-class  Getlike(APIView):
+class Getlike(APIView):
     def post(self, request):
         token = request.data['token']
         try:
@@ -206,6 +205,65 @@ class  Getlike(APIView):
     
         if like:
             print('1')
+            response = Response()
+            response.data = {'status': True}
+            return response
+    
+        else:
+            response = Response()
+            response.data = {'status': False}
+            return response
+
+
+# ################################################################################################33
+# ######################################## Dislike here #############################################33
+
+
+class DislikeFuck(APIView):
+    def post(self, request):
+        token = request.data['token']
+        try:
+            payload = jwt.decode(token, 'secret', algorithm=['HS256'])
+        except jwt.ExpiredSignatureError:
+            raise AuthenticationFailed('Unauthenticated!')
+
+        user = User.objects.filter(id=payload['id']).first()
+        video = Video.objects.filter(id=request.data['id']).first()
+        dislike = Dislike.objects.filter(video=video.id,user=user.id).first()
+
+        if dislike:
+            Dislike.objects.filter(video=video.id).delete()
+            response = Response()
+            response.data = {'status': False}
+            return response
+
+        else:
+            like = Like.objects.filter(video=video.id, user=user.id).first()
+            if like:
+                Like.objects.filter(video=video.id).delete()
+
+            data = {'video': video.id, 'user': user.id, 'status': True}
+            ser = DislikeSer(data=data)
+            ser.is_valid(raise_exception=True)
+            ser.save()
+            response = Response()
+            response.data = {'statusdislike': True, 'statuslike': False}
+            return response
+
+
+class GetDislike(APIView):
+    def post(self, request):
+        token = request.data['token']
+        try:
+            payload = jwt.decode(token, 'secret', algorithm=['HS256'])
+        except jwt.ExpiredSignatureError:
+            raise AuthenticationFailed('Unauthenticated!')
+    
+        user = User.objects.filter(id=payload['id']).first()
+        video = Video.objects.filter(id=request.data['id']).first()
+        dislike = Dislike.objects.filter(video=video.id, user=user.id).first()
+    
+        if dislike:
             response = Response()
             response.data = {'status': True}
             return response

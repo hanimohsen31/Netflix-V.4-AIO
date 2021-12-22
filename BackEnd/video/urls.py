@@ -27,6 +27,10 @@ urlpatterns = [
     path('drama', views.Drama.as_view()),
 
     path('like', views.LikeFuck.as_view()),
-    path('getlike',views.Getlike.as_view())
+    path('getlike',views.Getlike.as_view()),
+
+    
+    path('dislike', views.DislikeFuck.as_view()),
+    path('getdislike',views.GetDislike.as_view()),
 
 ]

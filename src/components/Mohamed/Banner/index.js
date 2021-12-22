@@ -11,7 +11,8 @@ function Banner(props) {
   const video = props.vid
   // console.log(video.title)
   const history = useHistory();
-  const [like,setLike] = useState(true)
+  const [like,setLike] = useState()
+  const [dislike,setDisLike] = useState()
 
   const handleClick = (event) => {
     event.preventDefault();
@@ -23,16 +24,37 @@ function Banner(props) {
       id: video.id,
       token : localStorage.getItem('token')
     }).then(function(response) {
-      setLike(response.data.status)})
+      setLike(response.data.statuslike)
+      setDisLike(response.data.statusdislike)})
   }
 
   useEffect(() => {
+
     const response=  axios.post('http://localhost:8000/api/getlike', {
       id: video.id,
       token : localStorage.getItem('token')
     }).then(function(response) {
-      setLike(response.data.status)})
+      setLike(response.data.status)
+
+      const response1=  axios.post('http://localhost:8000/api/getdislike', {
+      id: video.id,
+      token : localStorage.getItem('token')
+    }).then(function(response1) {
+      setDisLike(response1.data.status)})
+    })
+
   }, );
+
+
+
+  const handdislelike =  async() => {
+    const response= await axios.post('http://localhost:8000/api/dislike', {
+      id: video.id,
+      token : localStorage.getItem('token')
+    }).then(function(response) {
+      setLike(response.data.statuslike)
+      setDisLike(response.data.statusdislike)})
+  }
 
 
 
@@ -53,8 +75,12 @@ function Banner(props) {
             <button className="banner-button" onClick={handleClick}> <FaPlay /> Play</button>
             {/* <button className="banner-button" onClick={handleClick}> <AiTwotoneLike />Like</button> */}
             {/* like */}
-            {like == true && <AiTwotoneLike onClick={handlelike} className="icons iconx2" />}
-            {like == false && <AiTwotoneDislike onClick={handlelike} className="icons iconx2" />}
+            {like == true && <AiTwotoneLike onClick={handlelike} className="icons iconx2" style={{color:'#fff'}}/>}
+            {like == false && <AiTwotoneLike onClick={handlelike} className="icons iconx2"  />}
+
+            {dislike == true && <AiTwotoneDislike onClick={handdislelike} className="icons iconx3" style={{color:'#fff'}}/>}
+            {dislike == false && <AiTwotoneDislike onClick={handdislelike} className="icons iconx3" />}
+
             {/* go back */}
             <FaWindowClose onClick={() => history.goBack()} className="icons iconx" />
 
