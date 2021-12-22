@@ -10,8 +10,11 @@ export const ApiContextProvider = ({ children, baseURL }) => {
     const createHeaders = () => {
         return {
             headers: {
+           
             Authorization: `Bearer ${authContext.token}`,
+            
             },
+            userid:authContext.user
         };
     };
     const get = (path) => {

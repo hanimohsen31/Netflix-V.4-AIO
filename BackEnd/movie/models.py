@@ -17,6 +17,10 @@ class Movie(models.Model):
     rates = models.ManyToManyField(Rate)
     users = models.ManyToManyField(User)
 
+    # categories = models.ManyToManyField(Category,related_name='categories', null=True, blank=True)
+    # rates = models.ManyToManyField(Rate,related_name='rates', null=True, blank=True)
+    # users = models.ManyToManyField(User,related_name='users', null=True, blank=True)
+
 
 
     

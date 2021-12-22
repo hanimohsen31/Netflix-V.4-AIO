@@ -19,5 +19,4 @@ class Category(models.Model):
 class Rate(models.Model):
     rate = models.FloatField()
  
-    def __str__(self):
-        return self.rate
+ 

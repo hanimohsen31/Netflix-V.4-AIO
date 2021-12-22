@@ -86,7 +86,7 @@ class Login(APIView):
         date= serializer.data["is_active"]
         print(date)
         response.data = {
-            'jwt': token, 'is_active':date}
+            'jwt': token, 'is_active':date ,'i':user.id}
 
         return response
 

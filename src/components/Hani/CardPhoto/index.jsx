@@ -4,19 +4,35 @@ import { IoIosArrowDropdown } from "react-icons/io";
 import { BsDot } from "react-icons/bs";
 import './cardphoto.css'
 import { useHistory } from 'react-router-dom';
-import { useState } from 'react';
-
+import { useState, useContext } from "react";
+import axios from "axios";
+import { ApiContext } from '../../../Context/ApiContext';
+import { AuthContext } from '../../../Context/authcontext';
 
 
 export const CardPhoto = (props) => {
   let icoColor = '#d6d4d4'
-
+const  apicontext=useContext(ApiContext)
+const  authcontext=useContext(AuthContext)
   const axios_url=props.axios_url;
   const history = useHistory();
   
   const handleClick = (event) =>{ 
     event.preventDefault();
+
     history.push({pathname:"/details",state: {axios_url:axios_url}});}
+
+   
+const  handleAddMyList=async (event)=>{
+  event.preventDefault();
+  console.log(authcontext.user)
+   await apicontext.post(`http://127.0.0.1:8000/api/video/${props.id}/${props.eps_num == null ? 'movie':'episode'}/addtomylist`,{user_id:authcontext.user})
+}
+    // useEffect(() => {
+    //   axios.get(`http://127.0.0.1:8000/api/video/${props.id}/${props.eps_num == null ? 'movie':'episode'}/addtomylist`).then((result) => {
+    //     console.log(result.data);
+    //   });
+    // }, [vids]);
 
   return (
     <>
@@ -29,7 +45,9 @@ export const CardPhoto = (props) => {
 
           <div className="col1 col-6" >
             <FaPlayCircle size='35px' style={{ color: icoColor }} />
-            <AiOutlinePlusCircle size='40px' style={{ color: icoColor }} />
+          <a onClick={handleAddMyList}>
+             <AiOutlinePlusCircle size='40px' style={{ color: icoColor }} />
+          </a> 
           </div>
 
           <div className="col2 col-6" >

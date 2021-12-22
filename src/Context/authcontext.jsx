@@ -7,7 +7,7 @@ export const AuthContext = createContext();
 
 export const AuthContextProvider=({children})=>{
     const [token, setToken] = useState(null);
-    const[repo,setrepo]=useState()
+    const[user,setuser]=useState()
     const[isLoggedIn,setLoggedIn]=useState()
     // const post= usePost()
 
@@ -31,6 +31,7 @@ async function getuser_data(email,password){
             localStorage.setItem("token",response.data.jwt)
             console.log(response.data.jwt,"rrtrerere")
             setToken(response.data.jwt)
+            setuser(response.data.i)
             console.log(token)
             console.log(isLoggedIn,"meme")
         }
@@ -45,7 +46,8 @@ async function getuser_data(email,password){
         getuser_data   
         ,logout
         ,isLoggedIn,
-        token
+        token,
+        user
         }}>
         {children}
         </AuthContext.Provider>

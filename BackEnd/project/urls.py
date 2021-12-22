@@ -25,7 +25,11 @@ urlpatterns = [
 
     path('user/', include('accounts.urls')),
     path('video/', include('video.urls', namespace='video')),
+    path('api/', include('episode.urls')),
+    path('api/', include('movie.urls')),
     path('api/', include('video.urls')),
+
+
 
 ]
 #
