@@ -14,6 +14,20 @@ import { CardPhoto } from '../CardPhoto/index';
 SwiperCore.use([Pagination, Navigation]);
 
 export const SwiperApp = (props) => {
+
+  var gettheme = window.localStorage.getItem('theme');
+
+  if (window.localStorage.getItem('theme') == 'true'){
+    document.body.style.background = '#191b1b';
+  }
+  else if (window.localStorage.getItem('theme') == 'false'){
+      document.body.style.background = '#fff';
+  }
+  else {
+      document.body.style.background = '#191b1b';
+  }
+
+
     // here we still need some fucking promisses handelling 
     let vid = document.querySelectorAll('video')
     for (let i =0 ; i<vid.length ; i++){
@@ -41,8 +55,17 @@ export const SwiperApp = (props) => {
 
   return (
     <>
-    <div className="container-fluid" style={{margin:'50px auto',background: '#191b1b' }}>
-    <h3 style={{ color: "white",margin:'10px' }}>{props.slider_name}</h3>
+    <div className="container-fluid swip" id='swiper' style={{margin:'50px auto'}}>
+
+      { gettheme == 'true' &&  <style> backgroundColor = '#191b1b'</style> }
+      { gettheme == 'false' &&  <style> backgroundColor = '#fff' </style> }
+
+    
+
+    { gettheme == 'true' &&  <h3 style={{ color : '#fff' , margin:'10px' }}>{props.slider_name}</h3> }
+    { gettheme == 'false' &&  <h3 style={{ color : '#191b1b' , margin:'10px' }}>{props.slider_name}</h3> }
+
+    
     <Swiper
         breakpoints={{
           0: {

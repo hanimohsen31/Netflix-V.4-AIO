@@ -12,6 +12,8 @@ import { CardPhoto } from '../CardPhoto/index';
 SwiperCore.use([Pagination, Navigation]);
 
 export const Grid = (props) => {
+  var gettheme = window.localStorage.getItem('theme');
+
     // here we still need some fucking promisses handelling 
     let vid = document.querySelectorAll('video')
     for (let i =0 ; i<vid.length ; i++){
@@ -39,7 +41,10 @@ export const Grid = (props) => {
 
   return (
     <>
-    <div className="container-fluid" style={{margin:'50px auto',background: '#191b1b' }}>
+    <div className="container-fluid" style={{margin:'50px auto'}}>
+    { gettheme == 'true' &&  <style> backgroundColor = '#191b1b' </style> }
+      { gettheme == 'false' &&  <style> backgroundColor = '#fff' </style> }
+
     <h3 style={{ color: "white",margin:'10px' }}>{props.slider_name}</h3>
     <div className="grid-cards">
 

@@ -5,9 +5,15 @@ import { FooterInner } from '../../../components/Manar/FooterInner';
 // import { Grid } from "../../../components/Hani/Grid";
 
 export const HomeIn = () => {
-    document.body.style.background = '#191b1b';
-    
-    // localStorage.setItem('token','iamin1234')
+    if (window.localStorage.getItem('theme') == 'true'){
+        document.body.style.background = '#191b1b';
+    }
+    else if (window.localStorage.getItem('theme') == 'false'){
+        document.body.style.background = '#fff';
+    }
+    else {
+        document.body.style.background = '#191b1b';
+    }
     
     return (
         <>

@@ -4,6 +4,7 @@ import { faYoutube, faFacebook } from "@fortawesome/free-brands-svg-icons";
 import "./footerinner.css";
 
 export const FooterInner = () => {
+  var gettheme = window.localStorage.getItem('theme');
 
 
   const handleClick = (e) => {
@@ -14,6 +15,10 @@ export const FooterInner = () => {
   return (
     <>
       <footer id="Footer" className="myfooter">
+        
+      { gettheme == 'true' &&  <style> backgroundColor = '#191b1b' </style> }
+      { gettheme == 'false' &&  <style> backgroundColor = '#fff' </style> }
+
         <div className="container-fluid">
 
 

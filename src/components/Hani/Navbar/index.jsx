@@ -2,9 +2,37 @@
 import { NavLink } from "react-router-dom";
 import "./navbar.css"
 import nlogo from "../../../files/Images/nlogo.png";
+import { useState } from "react";
 
 export const Navbar = () => {
-  
+  // true = dark
+
+ var darkcolor = "#191b1b"
+ var lightcolor = '#fff'
+ 
+ const toggleTheme = () => {
+
+   console.log('just in toggle')
+   console.log(window.localStorage.getItem('theme'))
+   
+   if (window.localStorage.getItem('theme') == 'true'){
+    console.log('handlelight')
+    document.body.style.background = lightcolor;
+    window.localStorage.setItem('theme', false)
+   } 
+
+   else if (window.localStorage.getItem('theme') == 'false'){
+    console.log('handledark')
+    document.body.style.background = darkcolor;
+    window.localStorage.setItem('theme', true)
+   }
+
+   else {
+    document.body.style.background = darkcolor;
+     console.log('A777aa')
+   }
+}
+
   return (
       <nav className="navbar navbar-expand-lg navbar-dark ">
       <div class="container-fluid">
@@ -47,6 +75,9 @@ export const Navbar = () => {
 
           <li className="nav-item">
             <NavLink className="nav-link" to="/logout">LogOut</NavLink>
+          </li>
+          <li>
+            <button className="btn btn-outline-dark" onClick={toggleTheme}>Light</button>
           </li>
 
 

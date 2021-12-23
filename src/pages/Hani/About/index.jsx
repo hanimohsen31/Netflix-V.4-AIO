@@ -7,11 +7,26 @@ import mohamed from "../../../files/mohamed.jpg";
 
 
 export const About = () => {
-  document.body.style.background = '#191b1b';
+  var gettheme = window.localStorage.getItem('theme');
+
+  if (window.localStorage.getItem('theme') == 'true'){
+    document.body.style.background = '#191b1b';
+  }
+  else if (window.localStorage.getItem('theme') == 'false'){
+      document.body.style.background = '#fff';
+  }
+  else {
+      document.body.style.background = '#191b1b';
+  }
 
   return (
     <>
-      <Navbar />
+    
+
+    { gettheme == 'true' && <div style={{backgroundColor : 'black'}}><Navbar /></div>  }
+    { gettheme == 'false' && <div style={{backgroundColor :'black'}}><Navbar /></div> }
+
+
       <div className="container my-2">
 
         {/* fathi */}

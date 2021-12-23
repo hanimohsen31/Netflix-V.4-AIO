@@ -7,7 +7,15 @@ import { FooterInner } from '../../../components/Manar/FooterInner';
 
 
 export const TvShows = () => {
-    document.body.style.background = '#191b1b';
+    if (window.localStorage.getItem('theme') == 'true'){
+        document.body.style.background = '#191b1b';
+    }
+    else if (window.localStorage.getItem('theme') == 'false'){
+        document.body.style.background = '#fff';
+    }
+    else {
+        document.body.style.background = '#191b1b';
+    }
 
     return (
         <>
