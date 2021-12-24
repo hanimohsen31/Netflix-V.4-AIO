@@ -6,6 +6,8 @@ import './cardphoto.css'
 import { useHistory } from 'react-router-dom';
 // import { useState } from 'react';
 
+// "GET /api/video/Horizon%20Zero%20Dawn"
+// "GET /api/video/12"
 
 
 export const CardPhoto = (props) => {
@@ -39,7 +41,7 @@ export const CardPhoto = (props) => {
 
           <div className="col1 col-6" >
             <FaPlayCircle size='35px' onClick={handlepreview} style={{ color: icoColor }} />
-            <AiOutlinePlusCircle size='40px' onClick={notAvNow} style={{ color: icoColor }} />
+            {/* <AiOutlinePlusCircle size='40px' onClick={notAvNow} style={{ color: icoColor }} /> */}
           </div>
 
           <div className="col2 col-6" >
@@ -51,10 +53,10 @@ export const CardPhoto = (props) => {
         </div>
           <div className='line1' >
             <p className='match'>Rate {props.rate}/10</p>
-            <p className='age'>16+</p>
+            <p className='age'>{props.age}+</p>
             {props.season_num > 0 && <p className="season_num_p">S:{props.season_num} E:{props.eps_num}</p>}
             {props.season_num < 1 && <p className="season_num_p">Movie</p>}
-            <p className='quality'>HD</p>
+            <p className='quality'>{props.quality}</p>
           </div>
 
           <div className='line2'>

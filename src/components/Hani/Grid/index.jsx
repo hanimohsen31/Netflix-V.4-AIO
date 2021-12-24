@@ -53,6 +53,7 @@ export const Grid = (props) => {
           vidsrc={p.video_file} imgsrc = {p.image} rate = {p.rate}
           season_num={p.season_num} eps_num = {p.eps_num}
           show_start={p.show_start} cat1={p.cat1} cat2={p.cat2} cat3={p.cat3}
+          age={p.age} quality={p.quality}
           axios_url={`http://127.0.0.1:8000/api/video/${p.id}`}
           />
           ))}

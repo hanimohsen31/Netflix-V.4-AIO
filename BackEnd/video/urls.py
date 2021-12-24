@@ -31,6 +31,10 @@ urlpatterns = [
 
     
     path('dislike', views.DislikeFuck.as_view()),
-    path('getdislike',views.GetDislike.as_view()),
+    path('getdislike', views.GetDislike.as_view()),
 
+    path('mylist', views.myList.as_view()),
+    path('getmylist', views.GetMyList.as_view()),
+
+    path('viewmylist', views.GetMyList705.as_view()),
 ]

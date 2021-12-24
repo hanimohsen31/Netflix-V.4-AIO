@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from video.models import Video, Like, Dislike
+from video.models import Video, Like, Dislike, MyList
 
 
 class VideoSer(serializers.ModelSerializer):
@@ -19,5 +19,12 @@ class LikeSer(serializers.ModelSerializer):
 class DislikeSer(serializers.ModelSerializer):
     class Meta:
         model = Dislike
+        field = '__all__'
+        exclude = []
+
+
+class MyListSer(serializers.ModelSerializer):
+    class Meta:
+        model = MyList
         field = '__all__'
         exclude = []

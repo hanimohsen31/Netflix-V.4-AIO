@@ -12,6 +12,7 @@ import { ProtectedRoute } from "./components/Fathi/protectedroute/index";
 import { MovieDetails } from './pages/Mohamed/MovieDetails/index';
 import { Preview } from './pages/Hani/Preview/index';
 import { About } from './pages/Hani/About/index';
+import { MyList } from "./pages/Hani/MyList";
 
 export const App = () => {
   return (
@@ -52,6 +53,10 @@ export const App = () => {
 
         <ProtectedRoute path="/terms">
           <TermsOfUse />
+        </ProtectedRoute>
+
+        <ProtectedRoute path="/mylist">
+          <MyList />
         </ProtectedRoute>
 
         <ProtectedRoute path="/preview">

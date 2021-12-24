@@ -3,6 +3,8 @@ import "./Banner.css"
 import {  FaPlay, FaWindowClose } from "react-icons/fa"
 import {  AiFillLike, AiTwotoneLike ,AiTwotoneDislike} from "react-icons/ai"
 import axios from "axios";
+import { AiOutlinePlusCircle } from "react-icons/ai";
+import { IoIosArrowDropdown } from "react-icons/io";
 
 // import { faCommentsDollar } from "@fortawesome/free-solid-svg-icons";
 import { useHistory } from 'react-router-dom';
@@ -12,7 +14,8 @@ function Banner(props) {
   // console.log(video.title)
   const history = useHistory();
   const [like,setLike] = useState()
-  const [dislike,setDisLike] = useState()
+  const [dislike,setDisLike] = useState()  
+  const [myList,setMyList] = useState()
 
   const handleClick = (event) => {
     event.preventDefault();
@@ -27,6 +30,24 @@ function Banner(props) {
       setLike(response.data.statuslike)
       setDisLike(response.data.statusdislike)})
   }
+
+  const handdislelike =  async() => {
+    const response= await axios.post('http://localhost:8000/api/dislike', {
+      id: video.id,
+      token : localStorage.getItem('token')
+    }).then(function(response) {
+      setLike(response.data.statuslike)
+      setDisLike(response.data.statusdislike)})
+  }
+
+  const handlemylist =  async() => {
+    const response= await axios.post('http://localhost:8000/api/mylist', {
+      id: video.id,
+      token : localStorage.getItem('token')
+    }).then(function(response) {
+      setMyList(response.data.statusmylist)})
+  }
+
 
   useEffect(() => {
 
@@ -43,20 +64,13 @@ function Banner(props) {
       setDisLike(response1.data.status)})
     })
 
-  }, );
-
-
-
-  const handdislelike =  async() => {
-    const response= await axios.post('http://localhost:8000/api/dislike', {
+    const response2=  axios.post('http://localhost:8000/api/getmylist', {
       id: video.id,
       token : localStorage.getItem('token')
-    }).then(function(response) {
-      setLike(response.data.statuslike)
-      setDisLike(response.data.statusdislike)})
-  }
+    }).then(function(response2) {
+      setMyList(response2.data.status)})
 
-
+  }, );
 
   return (
     <>
@@ -80,6 +94,9 @@ function Banner(props) {
 
             {dislike == true && <AiTwotoneDislike onClick={handdislelike} className="icons iconx3" style={{color:'#fff'}}/>}
             {dislike == false && <AiTwotoneDislike onClick={handdislelike} className="icons iconx3" />}
+
+            {myList == true && <AiOutlinePlusCircle onClick={handlemylist} className="icons iconx4" style={{color:'#fff'}}/>}
+            {myList == false && <AiOutlinePlusCircle onClick={handlemylist} className="icons iconx4" />}
 
             {/* go back */}
             <FaWindowClose onClick={() => history.goBack()} className="icons iconx" />

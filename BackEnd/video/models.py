@@ -9,6 +9,13 @@ Type = (
     ('Series', 'Series'),
 )
 
+Quality = (
+    ('SD', 'SD'),
+    ('HD', 'HD'),
+    ('FHD', 'FHD'),
+    ('BR', 'BR'),
+)
+
 
 class Video(models.Model):
     title = models.CharField(max_length=20)
@@ -24,6 +31,8 @@ class Video(models.Model):
     cat1 = models.CharField(max_length=10)
     cat2 = models.CharField(max_length=10)
     cat3 = models.CharField(max_length=10)
+    quality = models.CharField(max_length=15, choices=Quality)
+    age = models.IntegerField()
 
     def __str__(self):
         return self.title
@@ -39,6 +48,15 @@ class Like(models.Model):
 
 
 class Dislike(models.Model):
+    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+    video = models.ForeignKey(Video, null=True, on_delete=models.CASCADE)
+    status = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.video.title
+
+
+class MyList(models.Model):
     user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     video = models.ForeignKey(Video, null=True, on_delete=models.CASCADE)
     status = models.BooleanField(default=False)

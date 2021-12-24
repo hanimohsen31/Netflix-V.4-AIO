@@ -4,10 +4,10 @@ import requests
 from django.shortcuts import render
 
 from accounts.models import User
-from video.models import Video
+from video.models import Video, MyList
 from rest_framework.views import APIView
 from video.models import Video
-from .serializers import DislikeSer, VideoSer, LikeSer
+from .serializers import DislikeSer, VideoSer, LikeSer, MyListSer
 from rest_framework.response import Response
 from django.db.models import Q
 from .models import Like , Dislike
@@ -218,7 +218,6 @@ class Getlike(APIView):
 # ################################################################################################33
 # ######################################## Dislike here #############################################33
 
-
 class DislikeFuck(APIView):
     def post(self, request):
         token = request.data['token']
@@ -272,3 +271,85 @@ class GetDislike(APIView):
             response = Response()
             response.data = {'status': False}
             return response
+
+# ################################################################################################33
+# ######################################## myList here #############################################33
+
+
+class myList(APIView):
+    def post(self, request):
+        token = request.data['token']
+        try:
+            payload = jwt.decode(token, 'secret', algorithm=['HS256'])
+        except jwt.ExpiredSignatureError:
+            raise AuthenticationFailed('Unauthenticated!')
+
+        user = User.objects.filter(id=payload['id']).first()
+        video = Video.objects.filter(id=request.data['id']).first()
+        mylist = MyList.objects.filter(video=video.id, user=user.id).first()
+
+        if mylist:
+            MyList.objects.filter(video=video.id).delete()
+            response = Response()
+            response.data = {'statusmylist': False}
+            return response
+
+        else:
+            data = {'video': video.id, 'user': user.id, 'status': True}
+            ser = MyListSer(data=data)
+            ser.is_valid(raise_exception=True)
+            ser.save()
+            response = Response()
+            response.data = {'statusmylist': True}
+            return response
+
+
+class GetMyList(APIView):
+    def post(self, request):
+        token = request.data['token']
+        try:
+            payload = jwt.decode(token, 'secret', algorithm=['HS256'])
+        except jwt.ExpiredSignatureError:
+            raise AuthenticationFailed('Unauthenticated!')
+
+        user = User.objects.filter(id=payload['id']).first()
+        video = Video.objects.filter(id=request.data['id']).first()
+        mylist = MyList.objects.filter(video=video.id, user=user.id).first()
+
+        if mylist:
+            response = Response()
+            response.data = {'status': True}
+            return response
+
+        else:
+            response = Response()
+            response.data = {'status': False}
+            return response
+
+
+class GetMyList705(APIView):
+    def post(self, request):
+        token = request.data['token']
+        try:
+            payload = jwt.decode(token, 'secret', algorithm=['HS256'])
+        except jwt.ExpiredSignatureError:
+            raise AuthenticationFailed('Unauthenticated!')
+
+        user = User.objects.filter(id=payload['id']).first()
+        mylist705 = MyList.objects.filter(user=user.id)
+
+        if mylist705:
+            ser = MyListSer(mylist705, many=True)
+            x = []
+            for k in ser.data:
+                x.append(k['video'])
+            # print(x)
+            filterfin = Video.objects.filter(id__in=x)
+            print(filterfin)
+            ser = VideoSer(filterfin, many=True)
+            # x = []
+            # print(x)
+            return Response(ser.data)
+
+        else:
+            return Response('None')

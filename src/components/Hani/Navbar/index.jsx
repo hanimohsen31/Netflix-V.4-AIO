@@ -3,12 +3,15 @@ import { NavLink } from "react-router-dom";
 import "./navbar.css"
 import nlogo from "../../../files/Images/nlogo.png";
 import { useState } from "react";
+import lighticon from "../../../files/Images/l1.png"
+import darkicon from "../../../files/Images/l2.png"
 
 export const Navbar = () => {
-  // true = dark
+  var gettheme = window.localStorage.getItem('theme');
 
- var darkcolor = "#191b1b"
- var lightcolor = '#fff'
+  // true = dark
+  var darkcolor = "#191b1b"
+  var lightcolor = '#fff'
  
  const toggleTheme = () => {
 
@@ -57,9 +60,9 @@ export const Navbar = () => {
             <NavLink className="nav-link" to="/movies">Movies</NavLink>
           </li>
 
-          {/* <li className="nav-item">
+          <li className="nav-item">
             <NavLink className="nav-link" to="/mylist">My List</NavLink>
-          </li> */}
+          </li>
 
           {/* <li className="nav-item">
             <NavLink className="nav-link" to="/homeout">Welcome</NavLink>
@@ -76,11 +79,9 @@ export const Navbar = () => {
           <li className="nav-item">
             <NavLink className="nav-link" to="/logout">LogOut</NavLink>
           </li>
-          <li>
-            <button className="btn btn-outline-dark" onClick={toggleTheme}>Light</button>
-          </li>
 
-
+          {gettheme == 'true' && <li onClick={toggleTheme} style={{display:'flex',alignSelf:'center'}}><img src={lighticon} height='20px'/></li>}
+          {gettheme == 'false' && <li onClick={toggleTheme} style={{display:'flex',alignSelf:'center'}}><img src={darkicon} height='20px'/></li>}
 
           {/* <li className="nav-item">
             <NavLink className="nav-link" to="/profile">
