@@ -1,9 +1,7 @@
-from django.contrib.auth.models import User
+from accounts.models import User
 from django.db import models
-
 from series.models import Category, Rate
 
-# Create your models here.
 
 class Movie(models.Model):
     title = models.CharField(max_length=20)
@@ -17,12 +15,25 @@ class Movie(models.Model):
     rates = models.ManyToManyField(Rate)
     users = models.ManyToManyField(User)
 
-    # categories = models.ManyToManyField(Category,related_name='categories', null=True, blank=True)
-    # rates = models.ManyToManyField(Rate,related_name='rates', null=True, blank=True)
-    # users = models.ManyToManyField(User,related_name='users', null=True, blank=True)
-
-
-
-    
     def __str__(self):
         return self.title
+
+
+class Like(models.Model):
+    user = models.ForeignKey(
+        User, null=True, on_delete=models.CASCADE, related_name="like_user")
+    video = models.ForeignKey(Movie, null=True, on_delete=models.CASCADE)
+    status = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.video.title
+
+
+class Dislike(models.Model):
+    user = models.ForeignKey(
+        User, null=True, on_delete=models.CASCADE, related_name="dislike_user")
+    video = models.ForeignKey(Movie, null=True, on_delete=models.CASCADE)
+    status = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.video.title

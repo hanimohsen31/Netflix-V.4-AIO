@@ -17,7 +17,7 @@ export const MovieDetails = (props) => {
   const location = useLocation();
   const axios_url = location.state.axios_url;
   
-  console.log("comedy: ",axios_url)
+  // console.log("comedy: ",axios_url)
 
   document.body.style.background = "#191b1b";
 
@@ -29,7 +29,7 @@ export const MovieDetails = (props) => {
     });
   }, []);
 
-  const typeSelecttor = vid.map((p) => p.type)[0]
+  const typeSelecttor = vid.map((p) => p.series)[0]
   console.log('tyyyper',typeSelecttor)
   return (
       <div className="container">
@@ -45,7 +45,7 @@ export const MovieDetails = (props) => {
           )).slice(0,1)}
 
 
-        {typeSelecttor === 'Series' ? (<EpisodesList vid={vid} /> ) : (<div></div>) }
+        {typeSelecttor != null ? (<EpisodesList vid={vid} /> ) : (<div></div>) }
 
         {/* {vid.map((p) => (
           <div className="#">

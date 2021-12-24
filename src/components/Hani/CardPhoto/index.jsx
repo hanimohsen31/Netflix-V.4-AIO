@@ -5,7 +5,6 @@ import { BsDot } from "react-icons/bs";
 import './cardphoto.css'
 import { useHistory } from 'react-router-dom';
 import { useState, useContext } from "react";
-import axios from "axios";
 import { ApiContext } from '../../../Context/ApiContext';
 import { AuthContext } from '../../../Context/authcontext';
 
@@ -16,6 +15,8 @@ const  apicontext=useContext(ApiContext)
 const  authcontext=useContext(AuthContext)
   const axios_url=props.axios_url;
   console.log('Caard: ',axios_url)
+  const [addToList,setAddToList] = useState(props.is_added_to_myList)
+
 
   const history = useHistory();
   
@@ -28,8 +29,17 @@ const  authcontext=useContext(AuthContext)
 const  handleAddMyList=async (event)=>{
   event.preventDefault();
   console.log(authcontext.user)
-   await apicontext.post(`http://127.0.0.1:8000/api/video/${props.id}/${props.eps_num == null ? 'movie':'episode'}/addtomylist`,{user_id:authcontext.user})
+   await apicontext.post(`http://127.0.0.1:8000/api/video/${props.id}/${props.eps_num == null ? 'movie':'episode'}/addtomylist`,{
+     token:localStorage.getItem("token")}).then(response => setAddToList(response.data.added)).catch(error=>{
+      if (String(error).split(" ")[String(error).split(" ").length-1]=="401"){
+        history.push({pathname:"/login"});
+      }
+    });
 }
+
+
+
+
 const handlepreview = (event) => {
   event.preventDefault();
   history.push({ pathname: "/preview", state: { vidsrc : props.vidsrc } });
@@ -52,9 +62,11 @@ const handlepreview = (event) => {
 
           <div className="col1 col-6" >
             <FaPlayCircle onClick={handlepreview} size='35px' style={{ color: icoColor }} />
-          <a onClick={handleAddMyList}>
+          { addToList?<></>:
+            <a onClick={handleAddMyList}>
              <AiOutlinePlusCircle size='40px' style={{ color: icoColor }} />
           </a> 
+          }
           </div>
 
           <div className="col2 col-6" >
@@ -65,19 +77,21 @@ const handlepreview = (event) => {
 
         </div>
           <div className='line1' >
-            <p className='match'>Rate {props.rate}/10</p>
+            <p className='match'>Rate {props.rate.map((r,index) =>index<1?r.rate:<></>)}/10</p>
             <p className='age'>16+</p>
-            {props.season_num > 0 && <p className="season_num_p">S:{props.season_num} E:{props.eps_num}</p>}
-            {props.season_num < 1 && <p className="season_num_p">Movie</p>}
+            {props.eps_num != null && <p className="season_num_p">Season:{props.series.season_num} 
+            {/* Episode:{props.eps_num} */}
+            </p>}
+            {props.eps_num == null&& <p className="season_num_p">Movie</p>}
             <p className='quality'>HD</p>
           </div>
 
           <div className='line2'>
-            <p>{props.cat1}</p>
-            <BsDot />
-            <p>{props.cat2}</p> 
-            <BsDot />
-            <p>{props.cat3}</p>
+
+            {props.cats.map((cat,index)=><>
+           {index < 3 ? <><p>{cat.title}</p><BsDot /></> : <p></p>}</>)}
+
+
           </div>
 
         </div>

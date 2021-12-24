@@ -9,7 +9,9 @@ function EpisodesList(props) {
       <div className="l-items">
 
         {props.vid.map((p) => (
-          <EpisodeListItem fu={p} axios_url={`http://127.0.0.1:8000/api/video/${p.id}`} />
+          <EpisodeListItem fu={p} 
+          // axios_url={`http://127.0.0.1:8000/api/video/${p.id}`}
+           />
         ))}
         
       </div>

@@ -10,6 +10,7 @@ import { TermsOfUse } from "./pages/Hani/TermsOfUse";
 import { ProtectedRoute } from "./components/Fathi/protectedroute/index";
 // import { Profile } from './pages/Hani/Profile/index';
 import { MovieDetails } from './pages/Mohamed/MovieDetails/index';
+import { MyList } from './pages/Mohamed/MyList/index';
 import { Preview } from './pages/Hani/Preview/index';
 import { About } from './pages/Hani/About/index';
 
@@ -57,7 +58,10 @@ export const App = () => {
         <ProtectedRoute path="/preview">
           <Preview/>
         </ProtectedRoute>
-        
+
+        <ProtectedRoute path="/mylist">
+          <MyList/>
+        </ProtectedRoute>
         <Route path="/">
           <HomeOut />
         </Route>

@@ -14,7 +14,6 @@ export const ApiContextProvider = ({ children, baseURL }) => {
             Authorization: `Bearer ${authContext.token}`,
             
             },
-            userid:authContext.user
         };
     };
     const get = (path) => {

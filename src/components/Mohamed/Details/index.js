@@ -1,5 +1,7 @@
 import React from "react";
 import "./Details.css";
+import { BsDot } from "react-icons/bs";
+
 // import top10 from "../images";
 function Details(props) {
   const video = props.vid;
@@ -10,7 +12,7 @@ function Details(props) {
       <div className="col col-sm-12 col-md-6 left-detail flx align-items-start flex-column jusify-content-start">
 
         <div className="ldetail-row1 flx align-items-center ">
-          <span className="matches m">Rate {(video.rate)}/10</span>
+          <span className="matches m">Rate {video.rates.map((r,index) =>index<1?r.rate:<></>)}/10</span>
           {video.type === "Movie" ? (
             <span className="season-num m">Movie</span>
           ) : (
@@ -34,7 +36,8 @@ function Details(props) {
       <div className="col col-sm-12 col-md-6 left-detail">
         <div className="rdetail-row2 flx align-items-center">
           <p className="lbl">Genres: </p>{" "}
-          <p className="txt m">{video.cat1}, {video.cat2}, {video.cat3}</p>
+          {video.categories.map((cat,index)=><>
+          <p className="txt m">{cat.title}</p><BsDot /></>)}
         </div>
       </div>
       <div className="ldetail-row3 m"><h3>Description</h3>{video.description}</div>

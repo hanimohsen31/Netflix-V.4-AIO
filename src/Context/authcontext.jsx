@@ -36,7 +36,6 @@ async function getuser_data(email,password){
         ,logout
         ,isLoggedIn,
         token,
-        user
         }}>
         {children}
         </AuthContext.Provider>

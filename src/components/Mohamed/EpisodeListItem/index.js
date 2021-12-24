@@ -5,8 +5,8 @@ function EpisodeListItem(props) {
   const video = props.fu
 
 
-  const axios_url=props.axios_url;
-  console.log('last print',axios_url)
+  // const axios_url=props.axios_url;
+  // console.log('last print',axios_url)
   const history = useHistory();
   
   // const handleClick = (event) =>{ 
