@@ -13,6 +13,7 @@
     "babel-plugin-macros": "^3.1.0",
     "cors": "^2.8.5",
     "react": "17.0.1",
+    "react-dark-mode-toggle": "^0.2.0",
     "react-dom": "17.0.1",
     "react-icons": "^4.3.1",
     "react-popupbox": "^2.0.8",

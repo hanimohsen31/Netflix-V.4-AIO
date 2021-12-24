@@ -15,18 +15,19 @@ SwiperCore.use([Pagination, Navigation]);
 
 export const SwiperApp = (props) => {
 
+  // Colors || true = dark
+  var darkcolor = "#191b1b"
+  var lightcolor = '#fff'
   var gettheme = window.localStorage.getItem('theme');
-
   if (window.localStorage.getItem('theme') == 'true'){
-    document.body.style.background = '#191b1b';
+    document.body.style.background = darkcolor;
   }
   else if (window.localStorage.getItem('theme') == 'false'){
-      document.body.style.background = '#fff';
+      document.body.style.background = lightcolor;
   }
   else {
-      document.body.style.background = '#191b1b';
+      document.body.style.background = darkcolor;
   }
-
 
     // here we still need some fucking promisses handelling 
     let vid = document.querySelectorAll('video')
@@ -46,7 +47,6 @@ export const SwiperApp = (props) => {
     }
 
     const [vids, setVids] = useState([]);
-
     useEffect(() => {
       axios.get(props.axios_url).then((result) => {
         setVids(result.data);
@@ -56,16 +56,8 @@ export const SwiperApp = (props) => {
   return (
     <>
     <div className="container-fluid swip" id='swiper' style={{margin:'50px auto'}}>
+    <h3 style={{ color : '#777' , margin:'10px' }}>{props.slider_name}</h3>
 
-      { gettheme == 'true' &&  <style> backgroundColor = '#191b1b'</style> }
-      { gettheme == 'false' &&  <style> backgroundColor = '#fff' </style> }
-
-    
-
-    { gettheme == 'true' &&  <h3 style={{ color : '#fff' , margin:'10px' }}>{props.slider_name}</h3> }
-    { gettheme == 'false' &&  <h3 style={{ color : '#191b1b' , margin:'10px' }}>{props.slider_name}</h3> }
-
-    
     <Swiper
         breakpoints={{
           0: {
@@ -88,13 +80,12 @@ export const SwiperApp = (props) => {
       >
 
         {vids.map((p) => (
-
         <SwiperSlide>
-
           <CardPhoto id={p.id} title={p.title} description = {p.description} 
           vidsrc={p.video_file} imgsrc = {p.image} rate = {p.rate}
           season_num={p.season_num} eps_num = {p.eps_num}
           show_start={p.show_start} cat1={p.cat1} cat2={p.cat2} cat3={p.cat3}
+          age={p.age} quality={p.quality}
           axios_url={`http://127.0.0.1:8000/api/video/${p.title}`}
           />
         </SwiperSlide>

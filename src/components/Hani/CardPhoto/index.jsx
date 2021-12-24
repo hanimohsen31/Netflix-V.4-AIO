@@ -4,31 +4,20 @@ import { IoIosArrowDropdown } from "react-icons/io";
 import { BsDot } from "react-icons/bs";
 import './cardphoto.css'
 import { useHistory } from 'react-router-dom';
-// import { useState } from 'react';
-
-// "GET /api/video/Horizon%20Zero%20Dawn"
-// "GET /api/video/12"
-
 
 export const CardPhoto = (props) => {
   let icoColor = '#d6d4d4'
-
-  const axios_url=props.axios_url;
-  console.log('Caard: ',axios_url)
-
+  const axios_url = props.axios_url;
   const history = useHistory();
-  
-  const handleClick = (event) =>{ 
+  // handle click
+  const handleClick = (event) => {
     event.preventDefault();
-    history.push({pathname:"/details",state: {axios_url:axios_url}});}
+    history.push({ pathname: "/details", state: { axios_url: axios_url } });
+  }
 
-      const handlepreview = (event) => {
-        event.preventDefault();
-        history.push({ pathname: "/preview", state: { vidsrc : props.vidsrc } });
-      }
-
-  const notAvNow = () => {
-    alert('Not Available now')
+  const handlepreview = (event) => {
+    event.preventDefault();
+    history.push({ pathname: "/preview", state: { vidsrc: props.vidsrc } });
   }
 
   return (
@@ -37,20 +26,19 @@ export const CardPhoto = (props) => {
         <video src={props.vidsrc} className="card-img-top" muted alt="" poster={props.imgsrc} />
 
         <div className="card-body">
-        <div className='row' >
+          <div className='row' >
 
-          <div className="col1 col-6" >
-            <FaPlayCircle size='35px' onClick={handlepreview} style={{ color: icoColor }} />
-            {/* <AiOutlinePlusCircle size='40px' onClick={notAvNow} style={{ color: icoColor }} /> */}
+            <div className="col1 col-6" >
+              <FaPlayCircle size='35px' onClick={handlepreview} style={{ color: icoColor }} />
+            </div>
+
+            <div className="col2 col-6" >
+              <a onClick={handleClick} href="####">
+                <IoIosArrowDropdown size='40px' style={{ color: icoColor }} />
+              </a>
+            </div>
+
           </div>
-
-          <div className="col2 col-6" >
-          <a onClick={handleClick} href="####">
-            <IoIosArrowDropdown size='40px' style={{ color: icoColor }}/>
-          </a>
-          </div>
-
-        </div>
           <div className='line1' >
             <p className='match'>Rate {props.rate}/10</p>
             <p className='age'>{props.age}+</p>
@@ -62,7 +50,7 @@ export const CardPhoto = (props) => {
           <div className='line2'>
             <p>{props.cat1}</p>
             <BsDot />
-            <p>{props.cat2}</p> 
+            <p>{props.cat2}</p>
             <BsDot />
             <p>{props.cat3}</p>
           </div>

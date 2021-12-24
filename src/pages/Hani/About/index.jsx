@@ -7,28 +7,26 @@ import mohamed from "../../../files/mohamed.jpg";
 
 
 export const About = () => {
+  // Colors || true = dark
+  var darkcolor = "#191b1b"
+  var lightcolor = '#fff'
   var gettheme = window.localStorage.getItem('theme');
 
   if (window.localStorage.getItem('theme') == 'true'){
-    document.body.style.background = '#191b1b';
+    document.body.style.background = darkcolor;
   }
   else if (window.localStorage.getItem('theme') == 'false'){
-      document.body.style.background = '#fff';
+      document.body.style.background = lightcolor;
   }
   else {
-      document.body.style.background = '#191b1b';
+      document.body.style.background = darkcolor;
   }
 
   return (
     <>
-    
-
-    { gettheme == 'true' && <div style={{backgroundColor : 'black'}}><Navbar /></div>  }
-    { gettheme == 'false' && <div style={{backgroundColor :'black'}}><Navbar /></div> }
-
-
+    <div style={{backgroundColor : 'black'}}><Navbar /></div>
       <div className="container my-2">
-
+        
         {/* fathi */}
         <div className="row founders">
           <img className="col col-md-3 col-lg-2 m imgfound" src={fathi} alt='' />
