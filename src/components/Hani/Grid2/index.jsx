@@ -8,6 +8,7 @@ import { CardPhoto } from '../CardPhoto/index';
 export const Grid2 = (props) => {
   var gettheme = window.localStorage.getItem('theme');
   const [vids, setVids] = useState([]);
+  
   useEffect(() => {
     const response = axios.post(props.axios_url, { token: localStorage.getItem('token') })
     response.then(

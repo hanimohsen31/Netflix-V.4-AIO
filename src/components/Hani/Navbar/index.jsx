@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import "./navbar.css"
 import nlogo from "../../../files/Images/nlogo.png";
 import { DarkMode } from '../DarkMode'
+import { Search } from '../Search'
 import { BiSearch } from "react-icons/bi";
 
 export const Navbar = () => {
@@ -68,11 +69,8 @@ export const Navbar = () => {
               <NavLink className="nav-link" to="/about">About</NavLink>
             </li>
 
-            <li>
-              <form class="d-flex">
-                <input class="form-control mx-2" type="search" placeholder="Search" aria-label="Search" style={{ height: '30px' }} />
-                <button class="btn btn-outline-dark mx-2" type="submit" style={{ height: '30px', display: 'flex', alignItems: 'center' }}><BiSearch /></button>
-              </form>
+            <li class="d-flex">
+              <Search/>
             </li>
             
             <li className="nav-item">

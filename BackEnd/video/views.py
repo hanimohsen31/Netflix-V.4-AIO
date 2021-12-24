@@ -353,3 +353,12 @@ class GetMyList705(APIView):
 
         else:
             return Response('None')
+
+
+class VidSearch(APIView):
+
+    def post(self, request):
+        video = Video.objects.filter(title=request.data['title'])
+        ser = VideoSer(video, many=True)
+        return Response(ser.data)
+        print(request.data['title'])

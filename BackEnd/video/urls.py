@@ -37,4 +37,6 @@ urlpatterns = [
     path('getmylist', views.GetMyList.as_view()),
 
     path('viewmylist', views.GetMyList705.as_view()),
+
+    path('search', views.VidSearch.as_view()),
 ]

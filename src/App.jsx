@@ -13,6 +13,7 @@ import { MovieDetails } from './pages/Mohamed/MovieDetails/index';
 import { Preview } from './pages/Hani/Preview/index';
 import { About } from './pages/Hani/About/index';
 import { MyList } from "./pages/Hani/MyList";
+import { Search105 } from "./pages/Hani/Search105";
 
 export const App = () => {
   return (
@@ -37,6 +38,10 @@ export const App = () => {
         
         <Route path="/about">
           <About />
+        </Route>
+
+        <Route path="/s105">
+          <Search105 />
         </Route>
 
         <ProtectedRoute path="/homein">
