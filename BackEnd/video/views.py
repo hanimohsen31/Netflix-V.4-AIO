@@ -54,7 +54,7 @@ class VideoDetails(APIView):
             data.append(ser.data)
             [data.append(episode)for episode in sers.data]
 
-        return Response(data)
+            return Response(data)
 
 
 class AddToMyList(APIView):
