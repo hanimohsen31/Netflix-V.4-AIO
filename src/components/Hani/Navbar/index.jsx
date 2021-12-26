@@ -42,7 +42,8 @@ export const Navbar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <div className="collapse navbar-collapse" id="navbarSupportedContent" style={{justifyContent:'space-between'}}>
+
           <ul className="navbar-nav me-auto mb-2 mb-lg-0 " style={{ alignItems: 'center' }}>
 
             <li className="nav-item">
@@ -69,13 +70,17 @@ export const Navbar = () => {
               <NavLink className="nav-link" to="/about">About</NavLink>
             </li>
 
-            <li class="d-flex">
+            <li class="d-flex" style={{position:'relative'}}>
               <Search/>
             </li>
             
-            <li className="nav-item">
+            </ul>
+
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0 " style={{ alignItems: 'center',justifySelf:'flex-end' }}>
+
+            {/* <li className="nav-item">
               <NavLink className="nav-link" to="/profile">Profile</NavLink>
-            </li>
+            </li> */}
 
             <li className="nav-item">
               <NavLink className="nav-link" to="/logout">LogOut</NavLink>

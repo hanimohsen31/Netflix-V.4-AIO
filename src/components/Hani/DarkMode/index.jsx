@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DarkModeToggle from "react-dark-mode-toggle";
 
 export const DarkMode = () => {
@@ -7,13 +7,13 @@ export const DarkMode = () => {
     if (window.localStorage.getItem('theme') == 'true') return true;
     else return false;
   });
+
   return (
     <DarkModeToggle
       onChange={setIsDarkMode}
       checked={isDarkMode}
-      size={40}
+      size={60}
       speed={3}
-
     />
   );
 };

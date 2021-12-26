@@ -36,13 +36,9 @@ export const App = () => {
           <MovieDetails />
         </ProtectedRoute>
         
-        <Route path="/about">
+        <ProtectedRoute path="/about">
           <About />
-        </Route>
-
-        <Route path="/s105">
-          <Search105 />
-        </Route>
+        </ProtectedRoute>
 
         <ProtectedRoute path="/homein">
           <HomeIn />
