@@ -53,14 +53,17 @@ https://www.youtube.com/watch?v=7Y41-SkriLQ
 ### 6. Movies
 ![Watching move page Image](https://github.com/hanimohsen31/Netflix-V.4-AIO/blob/main/IMGS/s3%20movies.jpg)
 
-### 7. Preview 
+### 7. My List
+![Watching move page Image](https://github.com/hanimohsen31/Netflix-V.4-AIO/blob/main/IMGS/mylist.jpg)
+
+### 8. Preview 
 ![Watching serieses page Image](https://github.com/hanimohsen31/Netflix-V.4-AIO/blob/main/IMGS/s4%20show.jpg)
 
-### 8. On Hover 
+### 9. On Hover 
 ![Watching serieses page Image](https://github.com/hanimohsen31/Netflix-V.4-AIO/blob/main/IMGS/s%20hover.jpg)
 
-### 9. Terms of Use
+### 10. Terms of Use
 ![Watching serieses page Image](https://github.com/hanimohsen31/Netflix-V.4-AIO/blob/main/IMGS/s3%20terms.jpg)
 
-### 10. About Us
+### 11. About Us
 ![Watching serieses page Image](https://github.com/hanimohsen31/Netflix-V.4-AIO/blob/main/IMGS/sss.jpg)
