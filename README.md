@@ -42,7 +42,7 @@ https://www.youtube.com/watch?v=7Y41-SkriLQ
 ![SignUp page Image](https://github.com/hanimohsen31/Netflix-V.4-AIO/blob/main/IMGS/signup.jpeg)
 
 ### 3. SignIn
-![Loging page Image](https://github.com/hanimohsen31/Netflix-V.4-AIO/blob/main/IMGS/s6%20login.jpg)
+![Loging page Image](https://github.com/hanimohsen31/Netflix-V.4-AIO/blob/main/IMGS/login2.jpg)
 
 ### 4. Home Page
 ![Home page Image](https://github.com/hanimohsen31/Netflix-V.4-AIO/blob/main/IMGS/s1.jpg)
