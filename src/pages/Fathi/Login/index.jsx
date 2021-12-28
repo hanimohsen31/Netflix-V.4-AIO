@@ -52,9 +52,10 @@ export const Login = () => {
                     Invalid login credentials
                   </div>
                 )}
-                <button type="submit">Log-in</button>
+                <button type="submit" className="btn btn-outline-danger">Log-in</button>
               </div>
-              <div className="support">
+
+              {/* <div className="support">
                 <div className="remember">
                   <span>
                     {" "}
@@ -63,7 +64,8 @@ export const Login = () => {
                   <span> Remember me</span>
                 </div>
                 <div>Need help ?</div>
-              </div>
+              </div> */}
+
               <div className="login_footer">
                 <div className="login_facebook">
 
@@ -78,12 +80,14 @@ export const Login = () => {
                 <div className="sign-up">
                   <p>New to netflex? <NavLink className="navbar-brand" to="/signup">Sign up now.</NavLink></p>
                 </div>
+
                 <div className="terms">
                   <p>
-                    this page is protected by Google to ensure you are not a bot
-                    <NavLink className="navbar-brand" to="/terms">Learn more.</NavLink>
+                    this page is protected by Google to ensure you are not a bot .
+                    {/* <NavLink className="navbar-brand" to="/terms">Learn more.</NavLink> */}
                   </p>
                 </div>
+
               </div>
             </form>
           </div>

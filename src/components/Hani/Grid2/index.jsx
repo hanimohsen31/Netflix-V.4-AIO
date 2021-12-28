@@ -4,11 +4,13 @@ import "./styles.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { CardPhoto } from '../CardPhoto/index';
+import { useHistory } from 'react-router-dom';
 
 export const Grid2 = (props) => {
   var gettheme = window.localStorage.getItem('theme');
   const [vids, setVids] = useState([]);
-  
+  const history = useHistory();
+
   useEffect(() => {
     const response = axios.post(props.axios_url, { token: localStorage.getItem('token') })
     response.then(
@@ -19,7 +21,8 @@ export const Grid2 = (props) => {
         else {
           setVids('None')
         }
-      });
+      })
+      ;
   }, [])
 
   // here we still need some fucking promisses handelling 

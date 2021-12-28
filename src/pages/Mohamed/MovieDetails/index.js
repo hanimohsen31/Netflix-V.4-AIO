@@ -24,6 +24,7 @@ export const MovieDetails = (props) => {
   const location = useLocation();
   const axios_url = location.state.axios_url;
   const [vid, setVid] = useState([]);
+  
   const typeSelecttor = vid.map((p) => p.type)[0]
 
   useEffect(async () => {

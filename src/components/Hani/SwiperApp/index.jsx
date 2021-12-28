@@ -31,6 +31,7 @@ export const SwiperApp = (props) => {
 
     // here we still need some fucking promisses handelling 
     let vid = document.querySelectorAll('video')
+
     for (let i =0 ; i<vid.length ; i++){
       vid[i].addEventListener('mouseenter',
       function(e){
@@ -47,6 +48,7 @@ export const SwiperApp = (props) => {
     }
 
     const [vids, setVids] = useState([]);
+    
     useEffect(() => {
       axios.get(props.axios_url).then((result) => {
         setVids(result.data);
