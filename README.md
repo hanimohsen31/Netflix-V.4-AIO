@@ -8,10 +8,11 @@ We simulated the most famous site for showing movies and series, which is Netfli
 * Confirmation email is sent to the user after signing up to activate the email.
 * When the user logging-in with wrong email or password, a wrong logging-in message is shown.
 * You can watch as many movies and series as you want until your subscription expires.
+* Both of movies and series are shown based on the categories. Many different types of categories are available.
+* Below each video, some description about the movie or series in addition to which category it belongs to.
 * You can like or dislike any video.
 * By clicking on like button of any video, it automatically added to your list. 
-
-
+* Light and dark mode are available. 
 
 
 
@@ -39,35 +40,35 @@ https://www.youtube.com/watch?v=7Y41-SkriLQ
 
 ## Photos of site: 
 
-### 1. Landing Page
+## 1. Landing Page
 ![Home page Image](https://github.com/hanimohsen31/Netflix-V.4-AIO/blob/main/IMGS/s5%20homeout.jpg)
 
-### 2. SignUp
+## 2. SignUp Page
 ![SignUp page Image](https://github.com/hanimohsen31/Netflix-V.4-AIO/blob/main/IMGS/signup.jpeg)
 
-### 3. SignIn
+## 3. Log-In Page
 ![Loging page Image](https://github.com/hanimohsen31/Netflix-V.4-AIO/blob/main/IMGS/login2.jpg)
 
-### 4. Home Page
+## 4. Home Page
 ![Home page Image](https://github.com/hanimohsen31/Netflix-V.4-AIO/blob/main/IMGS/s1.jpg)
 
-### 5. Tv Shows 
+## 5. TV Shows Page
 ![Watching serieses page Image](https://github.com/hanimohsen31/Netflix-V.4-AIO/blob/main/IMGS/s2%20tvshows.jpg)
 
-### 6. Movies
+## 6. Movies Page
 ![Watching move page Image](https://github.com/hanimohsen31/Netflix-V.4-AIO/blob/main/IMGS/s3%20movies.jpg)
 
-### 7. My List
+## 7. My List Page
 ![Watching move page Image](https://github.com/hanimohsen31/Netflix-V.4-AIO/blob/main/IMGS/mylist.jpg)
 
-### 8. Preview 
+## 8. Preview Page
 ![Watching serieses page Image](https://github.com/hanimohsen31/Netflix-V.4-AIO/blob/main/IMGS/s4%20show.jpg)
 
-### 9. On Hover 
+## 9. On Hover Page
 ![Watching serieses page Image](https://github.com/hanimohsen31/Netflix-V.4-AIO/blob/main/IMGS/s%20hover.jpg)
 
-### 10. Terms of Use
+## 10. Terms of Use Page
 ![Watching serieses page Image](https://github.com/hanimohsen31/Netflix-V.4-AIO/blob/main/IMGS/s3%20terms.jpg)
 
-### 11. About Us
+## 11. About Us Page
 ![Watching serieses page Image](https://github.com/hanimohsen31/Netflix-V.4-AIO/blob/main/IMGS/sss.jpg)
