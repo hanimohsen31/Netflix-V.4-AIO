@@ -5,7 +5,11 @@ We simulated the most famous site for showing movies and series, which is Netfli
 ## What you can do:
 
 * You can make login, signup, logout.
+* Confirmation email is sent to the user after signing up to activate the email.
+* When the user logging-in with wrong email or password, a wrong logging-in message is shown.
 * You can watch as many movies and series as you want until your subscription expires.
+* You can like or dislike any video.
+* By clicking on like button of any video, it automatically added to your list. 
 
 
 
