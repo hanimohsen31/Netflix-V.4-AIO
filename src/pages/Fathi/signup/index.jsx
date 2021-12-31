@@ -46,7 +46,7 @@ export const SignUp = () => {
           }
           else
             alert(response)
-            history.replace("/login");
+          history.replace("/login");
         })
     };
   }
@@ -102,20 +102,19 @@ export const SignUp = () => {
                 )}
 
 
-                <button type="submit">SignUp</button>
+                <button className="btn btn-outline-danger" type="submit">SignUp</button>
               </div>
               <div className="login_footer">
                 <div className="sign-up">
                   <p>
-                    {" "}
-                    if you have account?<NavLink className="navbar-brand" to="/login">Login now.</NavLink>
+                    
+                    if you have account? <NavLink className="navbar-brand" to="/login">Login now.</NavLink>
                   </p>
                 </div>
                 <div className="terms">
                   <p>
-                    {" "}
-                    this page is protected by Google to ensure you are not a bot{" "}
-                    <NavLink className="navbar-brand" to="/terms">Learn more.</NavLink>
+                    this page is protected by Google to ensure you are not a bot. 
+                    <NavLink className="navbar-brand" to="/terms"> Learn more.</NavLink>
                   </p>
                 </div>
               </div>
