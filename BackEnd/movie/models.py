@@ -19,21 +19,15 @@ class Movie(models.Model):
         return self.title
 
 
-class Like(models.Model):
+class MovieLike(models.Model):
     user = models.ForeignKey(
         User, null=True, on_delete=models.CASCADE, related_name="like_user")
     video = models.ForeignKey(Movie, null=True, on_delete=models.CASCADE)
-    status = models.BooleanField(default=False)
+    like = models.BooleanField(default=False)
+    dislike = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.video.title
+        return f'{self.like} {self.dislike}'
 
 
-class Dislike(models.Model):
-    user = models.ForeignKey(
-        User, null=True, on_delete=models.CASCADE, related_name="dislike_user")
-    video = models.ForeignKey(Movie, null=True, on_delete=models.CASCADE)
-    status = models.BooleanField(default=False)
 
-    def __str__(self):
-        return self.video.title

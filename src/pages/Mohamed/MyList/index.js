@@ -34,7 +34,10 @@ export const MyList = (props) => {
   return (
     <>
       <Navbar />
+
       <div className="container">
+      <h1 className=" text-light p-3">My List </h1>
+
         <ScardsList video={vid} />
       </div>
     </>

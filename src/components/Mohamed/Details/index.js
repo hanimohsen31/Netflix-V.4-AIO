@@ -12,8 +12,8 @@ function Details(props) {
       <div className="col col-sm-12 col-md-6 left-detail flx align-items-start flex-column jusify-content-start">
 
         <div className="ldetail-row1 flx align-items-center ">
-          <span className="matches m">Rate {video.rates.map((r,index) =>index<1?r.rate:<></>)}/10</span>
-          {video.type === "Movie" ? (
+          {/* <span className="matches m">Rate {video.rates.map((r,index) =>index<1?r.rate:<></>)}/10</span> */}
+          {video.season_num ? (
             <span className="season-num m">Movie</span>
           ) : (
             <span className="season-num m">Season {video.season_num}</span>
@@ -35,9 +35,9 @@ function Details(props) {
 
       <div className="col col-sm-12 col-md-6 left-detail">
         <div className="rdetail-row2 flx align-items-center">
-          <p className="lbl">Genres: </p>{" "}
-          {video.categories.map((cat,index)=><>
-          <p className="txt m">{cat.title}</p><BsDot /></>)}
+          {/* <p className="lbl">Genres: </p>{" "} */}
+          {/* {video.categories.map((cat,index)=><>
+          <p className="txt m">{cat.title}</p><BsDot /></>)} */}
         </div>
       </div>
       <div className="ldetail-row3 m"><h3>Description</h3>{video.description}</div>

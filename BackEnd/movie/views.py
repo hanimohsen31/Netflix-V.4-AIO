@@ -1,34 +1,38 @@
 import jwt
 from accounts.models import User
-from .serializers import DislikeSer, LikeSer, MovieSer
-from .models import Dislike, Like, Movie
+from .serializers import  LikeSer, MovieSer
+from .models import  MovieLike, Movie
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.exceptions import AuthenticationFailed
 
 
+def setlikes(like,action):
+    if (isinstance( like,dict)):
+        if action== "like":
+            like["like"]=True
+            like["dislike"]=False
+        if action== "nolike":
+            like["like"]=False
+        if action== "dislike":
+            like["like"]=False
+            like["dislike"]=True
+        if action== "nodislike":
+            like["dislike"]=False
+        return like  
+    else:  
+        if action== "like":
+            like.like=True
+            like.dislike=False
+        if action== "nolike":
+            like.like=False
 
-
-class MovieView(APIView):
-
-    def get(self, request):
-        token = request.query_params['token']
-        try:
-            payload = jwt.decode(token, 'secret', algorithm=['HS256'])
-        except jwt.ExpiredSignatureError:
-            raise AuthenticationFailed('Unauthenticated!')
-        user = User.objects.get(id=payload['id'])
-        movie = Movie.objects.all()
-        ser = MovieSer(movie, many=True)
-        data = ser.data
-        for i in data:
-            if user.id in i['users']:
-                i['added'] = True
-        return Response(ser.data)
-
-    def post(self, request):
-        pass
-
+        if action== "dislike":
+            like.like=False
+            like.dislike=True
+        if action== "nodislike":
+            like.dislike=False
+        return like
 
 class Likeview(APIView):
     def post(self, request):
@@ -39,28 +43,30 @@ class Likeview(APIView):
         except jwt.ExpiredSignatureError:
             raise AuthenticationFailed('Unauthenticated!')
 
-        user = User.objects.filter(id=payload['id']).first()
-        video = Movie.objects.filter(id=request.data['id']).first()
+        user = User.objects.get(id=payload['id'])
+        video=Movie.objects.get(id=request.data['id'])
+        action=request.data['action']
+        like = MovieLike.objects.filter(video=video.id, user=user.id).first()
 
-        like = Like.objects.filter(video=video.id, user=user.id).first()
+        print(f'my like{like}')
 
         if like:
-            Like.objects.filter(video=video.id).delete()
+            
+            like=setlikes(like,action)
+
+            like.save()
             response = Response()
-            response.data = {'status': False}
+            response.data = {'statuslike': like.like,'statusdislike':like.dislike}
             return response
 
         else:
-            dislike = Dislike.objects.filter(
-                video=video.id, user=user.id).first()
-            if dislike:
-                Dislike.objects.filter(video=video.id).delete()
-            data = {'video': video.id, 'user': user.id, 'status': True}
+            data =setlikes( {'video': video.id, 'user': user.id, 'dislike': request.data['dislike'],'like':request.data['like']},action)
+            print()
             ser = LikeSer(data=data)
             ser.is_valid(raise_exception=True)
             ser.save()
             response = Response()
-            response.data = {'statuslike': True, 'statusdislike': False}
+            response.data = {'statuslike': request.data['like'], 'statusdislike': request.data['dislike']}
             return response
 
 
@@ -74,70 +80,18 @@ class Getlike(APIView):
 
         user = User.objects.filter(id=payload['id']).first()
         video = Movie.objects.filter(id=request.data['id']).first()
-        like = Like.objects.filter(video=video.id, user=user.id).first()
+        print("1")
+        like = MovieLike.objects.filter(video=video.id, user=user.id).first()
+
+        print("2")
 
         if like:
-            print('1')
             response = Response()
-            response.data = {'status': True}
+            response.data = {'statuslike': like.like,'statusdislike':like.dislike}
             return response
 
         else:
             response = Response()
-            response.data = {'status': False}
+            response.data = {'statuslike': False,'statusdislike':False}
             return response
 
-
-class Dislikeview(APIView):
-    def post(self, request):
-        token = request.data['token']
-        try:
-            payload = jwt.decode(token, 'secret', algorithm=['HS256'])
-        except jwt.ExpiredSignatureError:
-            raise AuthenticationFailed('Unauthenticated!')
-
-        user = User.objects.filter(id=payload['id']).first()
-        video = Movie.objects.filter(id=request.data['id']).first()
-        dislike = Dislike.objects.filter(video=video.id, user=user.id).first()
-
-        if dislike:
-            Dislike.objects.filter(video=video.id).delete()
-            response = Response()
-            response.data = {'status': False}
-            return response
-
-        else:
-            like = Like.objects.filter(video=video.id, user=user.id).first()
-            if like:
-                Like.objects.filter(video=video.id).delete()
-
-            data = {'video': video.id, 'user': user.id, 'status': True}
-            ser = DislikeSer(data=data)
-            ser.is_valid(raise_exception=True)
-            ser.save()
-            response = Response()
-            response.data = {'statusdislike': True, 'statuslike': False}
-            return response
-
-
-class GetDislike(APIView):
-    def post(self, request):
-        token = request.data['token']
-        try:
-            payload = jwt.decode(token, 'secret', algorithm=['HS256'])
-        except jwt.ExpiredSignatureError:
-            raise AuthenticationFailed('Unauthenticated!')
-
-        user = User.objects.filter(id=payload['id']).first()
-        video = Movie.objects.filter(id=request.data['id']).first()
-        dislike = Dislike.objects.filter(video=video.id, user=user.id).first()
-
-        if dislike:
-            response = Response()
-            response.data = {'status': True}
-            return response
-
-        else:
-            response = Response()
-            response.data = {'status': False}
-            return response

@@ -9,7 +9,6 @@ import { useHistory } from "react-router-dom";
 
 function Banner(props) {
   const video = props.vid;
-  // console.log(video.title)
   const history = useHistory();
   const [like, setLike] = useState();
   const [dislike, setDisLike] = useState();
@@ -19,13 +18,17 @@ function Banner(props) {
     history.push({ pathname: "/preview", state: { vidsrc: video.video_file } });
   };
 
-  const handlelike = async () => {
-    const response = await axios
+  const handlelike = (event,type) => {
+    console.log("Clickeddddddddddddddd"+event)
+      axios
       .post(
         `http://localhost:8000/api/like/${
           video.eps_num == null ? "movie" : "episode"
         }`,
         {
+          action:type,
+          dislike:dislike,
+          like:like,
           id: video.id,
           token: localStorage.getItem("token"),
         }
@@ -44,7 +47,7 @@ function Banner(props) {
   };
 
   useEffect(() => {
-    const response = axios
+   axios
       .post(
         `http://localhost:8000/api/getlike/${
           video.eps_num == null ? "movie" : "episode"
@@ -55,52 +58,9 @@ function Banner(props) {
         }
       )
       .then(function (response) {
-        setLike(response.data.status);
-
-        const response1 = axios
-          .post(
-            `http://localhost:8000/api/getdislike/${
-              video.eps_num == null ? "movie" : "episode"
-            }`,
-            {
-              id: video.id,
-              token: localStorage.getItem("token"),
-            }
-          )
-          .then(function (response1) {
-            setDisLike(response1.data.status);
-          })
-          .catch((error) => {
-            if (
-              String(error).split(" ")[String(error).split(" ").length - 1] ==
-              "401"
-            ) {
-              history.push({ pathname: "/login" });
-            }
-          });
-      })
-      .catch((error) => {
-        if (
-          String(error).split(" ")[String(error).split(" ").length - 1] == "401"
-        ) {
-          history.push({ pathname: "/login" });
-        }
-      });
-  });
-  const handdislelike = async () => {
-    const response = await axios
-      .post(
-        `http://localhost:8000/api/dislike/${
-          video.eps_num == null ? "movie" : "episode"
-        }`,
-        {
-          id: video.id,
-          token: localStorage.getItem("token"),
-        }
-      )
-      .then(function (response) {
         setLike(response.data.statuslike);
         setDisLike(response.data.statusdislike);
+        
       })
       .catch((error) => {
         if (
@@ -109,7 +69,8 @@ function Banner(props) {
           history.push({ pathname: "/login" });
         }
       });
-  };
+  },[]);
+
 
   return (
     <>
@@ -132,27 +93,29 @@ function Banner(props) {
             {/* <button className="banner-button" onClick={handleClick}> <AiTwotoneLike />Like</button> */}
             {/* like */}
 
-            {like == true && (
+            {like == true ?
               <AiTwotoneLike
-                onClick={handlelike}
+                onClick={(e)=>handlelike(e,"nolike")}
                 className="icons iconx2"
                 style={{ color: "#fff" }}
               />
-            )}
-            {like == false && (
-              <AiTwotoneLike onClick={handlelike} className="icons iconx2" />
-            )}
+              :
+              <AiTwotoneLike onClick={(e)=>handlelike(e,"like")} className="icons iconx2" />
+
+            }
+            {/* {like == false && (
+            )} */}
 
             {dislike == true && (
               <AiTwotoneDislike
-                onClick={handdislelike}
+                onClick={(e)=>handlelike(e,"nodislike")}
                 className="icons iconx3"
                 style={{ color: "#fff" }}
               />
             )}
             {dislike == false && (
               <AiTwotoneDislike
-                onClick={handdislelike}
+                onClick={(e)=>handlelike(e,"dislike")}
                 className="icons iconx3"
               />
             )}

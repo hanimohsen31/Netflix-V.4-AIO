@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Dislike, Like, Movie
+from .models import  MovieLike, Movie
 from series.serializers import CategorySer, RateSer
 
 
@@ -15,13 +15,13 @@ class MovieSer(serializers.ModelSerializer):
 
 class LikeSer(serializers.ModelSerializer):
     class Meta:
-        model = Like
+        model = MovieLike
         field = '__all__'
         exclude = []
 
 
-class DislikeSer(serializers.ModelSerializer):
-    class Meta:
-        model = Dislike
-        field = '__all__'
-        exclude = []
+# class DislikeSer(serializers.ModelSerializer):
+#     class Meta:
+#         model = MovieDislike
+#         field = '__all__'
+#         exclude = []

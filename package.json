@@ -18,6 +18,7 @@
     "react-popupbox": "^2.0.8",
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
+    "react-search-autocomplete": "^5.4.4",
     "simple-react-lightbox": "^3.6.9-0",
     "swiper": "^7.3.1"
   },

@@ -1,9 +1,14 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext,useState } from "react";
 import axios from "axios";
 import { AuthContext } from "./authcontext";
 export const ApiContext = createContext();
 export const ApiContextProvider = ({ children, baseURL }) => {
     const authContext = useContext(AuthContext);
+    const [results,setresults] = useState()
+    const [vids, setVids] = useState([]);
+    const [movies, setmovies] = useState([]);
+    const [episodes, setepisodes] = useState([]);
+
     const api = axios.create({
         baseURL,
     });
@@ -27,6 +32,6 @@ export const ApiContextProvider = ({ children, baseURL }) => {
 
         return api.post(path,payload,createHeaders())
     }
-    return <ApiContext.Provider value={{ get,post }}>{children}</ApiContext.Provider>;
+    return <ApiContext.Provider value={{ episodes, setepisodes,movies, setmovies, vids, setVids,results,setresults, get,post }}>{children}</ApiContext.Provider>;
     
 }
