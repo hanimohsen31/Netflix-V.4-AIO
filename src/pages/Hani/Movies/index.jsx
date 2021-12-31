@@ -24,7 +24,7 @@ export const Movies = () => {
             <Navbar />
             <Landing />
             <SwiperApp axios_url='http://127.0.0.1:8000/api/movies' slider_name='Trending Movies' />
-            <Grid axios_url='http://127.0.0.1:8000/api/movies' slider_name='Movies' />
+            {/* <Grid axios_url='http://127.0.0.1:8000/api/movies' slider_name='Movies' /> */}
             <FooterInner />
         </>
     )
